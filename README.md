@@ -1,4 +1,4 @@
-# linkedin-demos-post
+# LeinkedIn Demo Posts :bangbang:
 Code of all the linkedin demos I have shared within 2023 and 2024
 
 - 01 - [Linkedin Post: Pandas Fighting](https://www.linkedin.com/posts/igngar_gemini-googlecloud-generativeai-activity-7140763241391063042-ZJ2f?utm_source=share&utm_medium=member_desktop)
