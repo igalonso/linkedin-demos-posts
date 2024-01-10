@@ -8,4 +8,3 @@ Code of all the linkedin demos I have shared within 2023 and 2024
 - 05 - [Linkedin Post: Emergency Room Triage](https://www.linkedin.com/posts/igngar_generativeai-generativeai-googlecloud-activity-7150478842384523264-dWkW?utm_source=share&utm_medium=member_desktop)
 - 06 - [Linkedin Post: TBD]()
 - 07 - [Linkedin Post: TBD]()
-- 
