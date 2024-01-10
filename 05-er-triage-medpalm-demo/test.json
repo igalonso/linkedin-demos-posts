@@ -1,0 +1,986 @@
+{
+    "entry": [
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/15c125a9-21c1-4558-82ae-e9f15dab6fca",
+        "resource": {
+          "abatementDateTime": "1989-12-19T09:04:10-05:00",
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "resolved",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "444814009",
+                "display": "Viral sinusitis (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Viral sinusitis (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/177326c7-ce71-4469-a6f9-81ea6d681532"
+          },
+          "id": "15c125a9-21c1-4558-82ae-e9f15dab6fca",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:39:01.852890+00:00",
+            "versionId": "MTY1NDUyMjc0MTg1Mjg5MDAwMA"
+          },
+          "onsetDateTime": "1989-11-28T09:04:10-05:00",
+          "recordedDate": "1989-11-28T09:04:10-05:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/7fbfe2b4-5394-429d-a0d6-daa52c110bfc",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "424132000",
+                "display": "Non-small cell carcinoma of lung, TNM stage 1 (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Non-small cell carcinoma of lung, TNM stage 1 (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/f95a3dd7-8b78-4a54-9be3-5de66ca9744a"
+          },
+          "id": "7fbfe2b4-5394-429d-a0d6-daa52c110bfc",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:52.196066+00:00",
+            "versionId": "MTY1NDUyMjczMjE5NjA2NjAwMA"
+          },
+          "onsetDateTime": "1986-04-16T09:04:10-05:00",
+          "recordedDate": "1986-04-16T09:04:10-05:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/0253f29e-77ce-419d-9c4f-0e6111e9d9bc",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "254637007",
+                "display": "Non-small cell lung cancer (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Non-small cell lung cancer (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/2dd38665-9b2c-48fa-ba59-b44716549d19"
+          },
+          "id": "0253f29e-77ce-419d-9c4f-0e6111e9d9bc",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:52.111184+00:00",
+            "versionId": "MTY1NDUyMjczMjExMTE4NDAwMA"
+          },
+          "onsetDateTime": "1986-04-14T09:04:10-05:00",
+          "recordedDate": "1986-04-14T09:04:10-05:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/6312dfa1-5585-4529-b8d3-2e060505af9b",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "162573006",
+                "display": "Suspected lung cancer (situation)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Suspected lung cancer (situation)"
+          },
+          "encounter": {
+            "reference": "Encounter/30655a59-8590-4817-b5ee-c0c91a201167"
+          },
+          "id": "6312dfa1-5585-4529-b8d3-2e060505af9b",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:51.985504+00:00",
+            "versionId": "MTY1NDUyMjczMTk4NTUwNDAwMA"
+          },
+          "onsetDateTime": "1986-04-03T09:04:10-05:00",
+          "recordedDate": "1986-04-03T09:04:10-05:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/35b5a0d2-0473-4d8d-98ab-015cc12c8b10",
+        "resource": {
+          "abatementDateTime": "1984-06-27T10:04:10-04:00",
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "resolved",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "195662009",
+                "display": "Acute viral pharyngitis (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Acute viral pharyngitis (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/27b4f8cd-93ee-4762-be58-e79989b1778a"
+          },
+          "id": "35b5a0d2-0473-4d8d-98ab-015cc12c8b10",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:48.296202+00:00",
+            "versionId": "MTY1NDUyMjcyODI5NjIwMjAwMA"
+          },
+          "onsetDateTime": "1984-06-15T10:04:10-04:00",
+          "recordedDate": "1984-06-15T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/e5e3a033-1ced-4a5f-85b6-941821e0659d",
+        "resource": {
+          "abatementDateTime": "1983-04-21T09:04:10-05:00",
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "resolved",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "10509002",
+                "display": "Acute bronchitis (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Acute bronchitis (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/9b243eec-b3cd-4e81-be72-0b64fb69a379"
+          },
+          "id": "e5e3a033-1ced-4a5f-85b6-941821e0659d",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:45.046675+00:00",
+            "versionId": "MTY1NDUyMjcyNTA0NjY3NTAwMA"
+          },
+          "onsetDateTime": "1983-04-07T09:04:10-05:00",
+          "recordedDate": "1983-04-07T09:04:10-05:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/d40705ce-3ffb-42fe-9160-87a0c2715924",
+        "resource": {
+          "abatementDateTime": "1983-02-28T09:04:10-05:00",
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "resolved",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "10509002",
+                "display": "Acute bronchitis (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Acute bronchitis (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/ac933519-9e94-48e0-9df5-49fb54b67d3f"
+          },
+          "id": "d40705ce-3ffb-42fe-9160-87a0c2715924",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:44.219382+00:00",
+            "versionId": "MTY1NDUyMjcyNDIxOTM4MjAwMA"
+          },
+          "onsetDateTime": "1983-02-14T09:04:10-05:00",
+          "recordedDate": "1983-02-14T09:04:10-05:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/9ebada3a-bd74-46fc-a899-2583d35f6f15",
+        "resource": {
+          "abatementDateTime": "1980-09-14T10:04:10-04:00",
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "resolved",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "44465007",
+                "display": "Sprain of ankle",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Sprain of ankle"
+          },
+          "encounter": {
+            "reference": "Encounter/db0cdc73-7b27-40f6-a819-4f62e2a306c8"
+          },
+          "id": "9ebada3a-bd74-46fc-a899-2583d35f6f15",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:31.868433+00:00",
+            "versionId": "MTY1NDUyMjcxMTg2ODQzMzAwMA"
+          },
+          "onsetDateTime": "1980-08-24T10:04:10-04:00",
+          "recordedDate": "1980-08-24T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/9f877bd0-39b6-4642-a1dd-cfa435b4e653",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "127013003",
+                "display": "Diabetic renal disease (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Diabetic renal disease (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/333b7dfc-51e2-4e7e-a0c6-cac401929155"
+          },
+          "id": "9f877bd0-39b6-4642-a1dd-cfa435b4e653",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:29.730538+00:00",
+            "versionId": "MTY1NDUyMjcwOTczMDUzODAwMA"
+          },
+          "onsetDateTime": "1979-09-24T10:04:10-04:00",
+          "recordedDate": "1979-09-24T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/1575bb25-4bff-4df6-86db-06a1dc04bd99",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "431855005",
+                "display": "Chronic kidney disease stage 1 (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Chronic kidney disease stage 1 (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/333b7dfc-51e2-4e7e-a0c6-cac401929155"
+          },
+          "id": "1575bb25-4bff-4df6-86db-06a1dc04bd99",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:29.673641+00:00",
+            "versionId": "MTY1NDUyMjcwOTY3MzY0MTAwMA"
+          },
+          "onsetDateTime": "1979-09-24T10:04:10-04:00",
+          "recordedDate": "1979-09-24T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/153c0f1b-b335-4bd2-a3f9-3425a9090413",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "422034002",
+                "display": "Diabetic retinopathy associated with type II diabetes mellitus (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Diabetic retinopathy associated with type II diabetes mellitus (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/9aed3c5d-cfc8-46ab-8f1d-93b275fc1e4e"
+          },
+          "id": "153c0f1b-b335-4bd2-a3f9-3425a9090413",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:29.443021+00:00",
+            "versionId": "MTY1NDUyMjcwOTQ0MzAyMTAwMA"
+          },
+          "onsetDateTime": "1978-10-09T10:04:10-04:00",
+          "recordedDate": "1978-10-09T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/2bfbf504-fa62-4be9-9dd1-17031830c11d",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "230690007",
+                "display": "Stroke",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Stroke"
+          },
+          "encounter": {
+            "reference": "Encounter/c8ce643f-3a1b-4474-b791-16f0adcd08f5"
+          },
+          "id": "2bfbf504-fa62-4be9-9dd1-17031830c11d",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:29.208343+00:00",
+            "versionId": "MTY1NDUyMjcwOTIwODM0MzAwMA"
+          },
+          "onsetDateTime": "1978-08-28T10:04:10-04:00",
+          "recordedDate": "1978-08-28T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/1778b437-8784-4a5d-8d1d-389150b8744b",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "449868002",
+                "display": "Smokes tobacco daily",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Smokes tobacco daily"
+          },
+          "encounter": {
+            "reference": "Encounter/9ef0dabc-2898-42c1-956f-f25ab79fdca4"
+          },
+          "id": "1778b437-8784-4a5d-8d1d-389150b8744b",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:28.986113+00:00",
+            "versionId": "MTY1NDUyMjcwODk4NjExMzAwMA"
+          },
+          "onsetDateTime": "1977-06-13T10:04:10-04:00",
+          "recordedDate": "1977-06-13T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/e59a9700-63a0-4522-b722-9778d8d2041e",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "368581000119106",
+                "display": "Neuropathy due to type 2 diabetes mellitus (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Neuropathy due to type 2 diabetes mellitus (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/bcc32866-62fe-41f3-9b33-01f973f92549"
+          },
+          "id": "e59a9700-63a0-4522-b722-9778d8d2041e",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:28.282956+00:00",
+            "versionId": "MTY1NDUyMjcwODI4Mjk1NjAwMA"
+          },
+          "onsetDateTime": "1967-08-07T10:04:10-04:00",
+          "recordedDate": "1967-08-07T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/2d91d198-2af5-4665-a1ed-f8295c8f7b9a",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "237602007",
+                "display": "Metabolic syndrome X (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Metabolic syndrome X (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/bcc32866-62fe-41f3-9b33-01f973f92549"
+          },
+          "id": "2d91d198-2af5-4665-a1ed-f8295c8f7b9a",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:28.218449+00:00",
+            "versionId": "MTY1NDUyMjcwODIxODQ0OTAwMA"
+          },
+          "onsetDateTime": "1967-08-07T10:04:10-04:00",
+          "recordedDate": "1967-08-07T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/d678cc49-573c-442e-a999-3012f8cfafa6",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "302870006",
+                "display": "Hypertriglyceridemia (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Hypertriglyceridemia (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/554ef5d4-435f-4f0f-a1c9-43a7c98dd344"
+          },
+          "id": "d678cc49-573c-442e-a999-3012f8cfafa6",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:27.955235+00:00",
+            "versionId": "MTY1NDUyMjcwNzk1NTIzNTAwMA"
+          },
+          "onsetDateTime": "1965-08-30T10:04:10-04:00",
+          "recordedDate": "1965-08-30T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/3c1791fa-c18c-4d3c-953d-53ba538bd941",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "44054006",
+                "display": "Diabetes",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Diabetes"
+          },
+          "encounter": {
+            "reference": "Encounter/316cbd1d-7458-4a33-8b76-aa19c634bb32"
+          },
+          "id": "3c1791fa-c18c-4d3c-953d-53ba538bd941",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:27.671867+00:00",
+            "versionId": "MTY1NDUyMjcwNzY3MTg2NzAwMA"
+          },
+          "onsetDateTime": "1963-08-26T10:04:10-04:00",
+          "recordedDate": "1963-08-26T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/69a4c85b-c3a9-4d6e-b863-66d845175e87",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "271737000",
+                "display": "Anemia (disorder)",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Anemia (disorder)"
+          },
+          "encounter": {
+            "reference": "Encounter/f2619a6c-5183-4803-b18f-61402febac6e"
+          },
+          "id": "69a4c85b-c3a9-4d6e-b863-66d845175e87",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:27.629964+00:00",
+            "versionId": "MTY1NDUyMjcwNzYyOTk2NDAwMA"
+          },
+          "onsetDateTime": "1959-08-17T10:04:10-04:00",
+          "recordedDate": "1959-08-17T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/3d3512a4-1c65-42ca-94a2-7b25612f4620",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "15777000",
+                "display": "Prediabetes",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Prediabetes"
+          },
+          "encounter": {
+            "reference": "Encounter/f2619a6c-5183-4803-b18f-61402febac6e"
+          },
+          "id": "3d3512a4-1c65-42ca-94a2-7b25612f4620",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:27.629388+00:00",
+            "versionId": "MTY1NDUyMjcwNzYyOTM4ODAwMA"
+          },
+          "onsetDateTime": "1959-08-17T10:04:10-04:00",
+          "recordedDate": "1959-08-17T10:04:10-04:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      },
+      {
+        "fullUrl": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/3e420eff-5664-42f7-aa97-84deebd9e5e8",
+        "resource": {
+          "clinicalStatus": {
+            "coding": [
+              {
+                "code": "active",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+              }
+            ]
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "59621000",
+                "display": "Hypertension",
+                "system": "http://snomed.info/sct"
+              }
+            ],
+            "text": "Hypertension"
+          },
+          "encounter": {
+            "reference": "Encounter/b86efc87-6b4f-49f4-bbb7-1af4c8dde28c"
+          },
+          "id": "3e420eff-5664-42f7-aa97-84deebd9e5e8",
+          "meta": {
+            "lastUpdated": "2022-06-06T13:38:27.607040+00:00",
+            "versionId": "MTY1NDUyMjcwNzYwNzA0MDAwMA"
+          },
+          "onsetDateTime": "1935-09-30T09:04:10-05:00",
+          "recordedDate": "1935-09-30T09:04:10-05:00",
+          "resourceType": "Condition",
+          "subject": {
+            "reference": "Patient/abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+          },
+          "verificationStatus": {
+            "coding": [
+              {
+                "code": "confirmed",
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+              }
+            ]
+          }
+        },
+        "search": {
+          "mode": "match"
+        }
+      }
+    ],
+    "link": [
+      {
+        "relation": "search",
+        "url": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/?_count=50&_sort=-_lastUpdated&patient=abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+      },
+      {
+        "relation": "first",
+        "url": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/?_count=50&_sort=-_lastUpdated&patient=abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+      },
+      {
+        "relation": "self",
+        "url": "https://healthcare.clients6.google.com/v1/projects/healthcare-api-demo-352513/locations/europe-west3/datasets/demo-dataset/fhirStores/fhirstore1/fhir/Condition/?_count=50&_sort=-_lastUpdated&patient=abbd3c1b-3048-49f2-95c9-9303b3b73d34"
+      }
+    ],
+    "resourceType": "Bundle",
+    "total": 20,
+    "type": "searchset"
+  }

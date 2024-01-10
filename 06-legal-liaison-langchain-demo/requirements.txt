@@ -1,0 +1,24 @@
+google-cloud-aiplatform
+langchain
+langchain-community
+chromadb
+pydantic
+typing-inspect
+langchain-google-genai
+pandas
+pypdf
+PyPDF2
+python-dotenv
+faiss-cpu
+streamlit
+# tesseract-ocr 
+# #libtesseract-dev 
+# poppler-utils 
+# # python-dev 
+# # libxml2-dev 
+# # libxslt1-dev 
+# antiword 
+# unrtf 
+# poppler-utils
+# # pstotext 
+# # tesserac-ocr

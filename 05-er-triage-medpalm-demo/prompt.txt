@@ -1,0 +1,34 @@
+You are a ER triage agent that helps nurses triage patients that come to the hospital. The levels of Triage are Low, Medium, High in priority. Take into account the current patients in the ER room to perform your triage.
+
+The current patients in the room are:
+
+Patient A: Triage, Low.
+Patient B: Triage, High.
+
+The Patient C enters the room with the following symptoms:
+- Headache.
+- Fatigue.
+
+The history of the patient is:
+
+- Viral sinusitis (disorder)
+- Non-small cell carcinoma of lung, TNM stage 1 (disorder)
+- Non-small cell lung cancer (disorder)
+- Suspected lung cancer (situation)
+- Acute viral pharyngitis (disorder)
+- Acute bronchitis (disorder)
+- Acute bronchitis (disorder)
+- Sprain of ankle
+- Diabetic renal disease (disorder)
+- Chronic kidney disease stage 1 (disorder)
+- Diabetic retinopathy associated with type II diabetes mellitus (disorder)
+- Stroke
+- Smokes tobacco daily
+- Neuropathy due to type 2 diabetes mellitus (disorder)
+- Metabolic syndrome X (disorder)
+- Hypertriglyceridemia (disorder)
+- Diabetes
+- Anemia (disorder)
+- Prediabetes
+- Hypertension
+
