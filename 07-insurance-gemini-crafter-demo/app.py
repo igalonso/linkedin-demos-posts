@@ -1,6 +1,8 @@
 import base64
 import vertexai
-from vertexai.preview.generative_models import GenerativeModel, Part, HarmCategory, HarmBlockThreshold
+from vertexai.preview.generative_models import GenerativeModel, Part, HarmCategory, HarmBlockThreshold, Tool
+from vertexai.preview import generative_models
+
 import cv2
 import numpy as np
 import json
@@ -55,12 +57,92 @@ def generate_insurance(image_path):
             HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
             HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
         }
-        
-        
     )
-    print(responses.candidates[0].content.parts[0].text)
-
     return json.loads(responses.candidates[0].content.parts[0].text)
+
+
+#definition of function to "use Vertex AI Function calling. Still on progress and not used in the UI"
+def generate_insurance_fromjson(json_response):
+    prompt = f"You are an insurace agent. Describe me the positions, and severities of the different zones of damage of this car based on this json {json_response} using double quotes without ```json. JSON:"
+    model = GenerativeModel("gemini-pro")
+    claim_spec = {
+        'name':'get_current_claim',
+        'description':'Fullfill the documentation on a claim based on the information from the photo',
+        'parameters':{
+            'type': 'object',
+            'properties':{
+                'hit':{
+                    'type': 'array',
+                    'description': 'a list of hits',
+                    'items':{
+                        'type': 'object',
+                        'properties':{
+                            'position':{
+                                'type': 'string',
+                                'enum': ['front-left', 'front', 'front-right', 'middle-left', 'middle-top', 'middle-right', 'bottom-left', 'bottom', 'bottom-right'],
+                                'description': 'one or many of these values - front-left, front, front-right, middle-left, middle-top, middle-right, bottom-left, bottom, bottom-right'
+                            },
+                            'damage':{
+                                'type': 'string',
+                                'enum': ['high', 'mid', 'low', 'none'],
+                                'description': 'one of these values - high, mid, low or none'
+                            
+                            }
+                        }
+                    }
+                },
+                'description':{
+                    'type': 'string',
+                    'description': 'description of the damage starting always with the phrase "From the point of view of the person taking the picture"'
+                },
+                'damaged_parts':{
+                    'type': 'array',
+                    'description': 'a list of damaged parts of the car',
+                    'items':{
+                        'type': 'string',
+                        'description': 'a damaged part of the car'
+                    }
+                },
+                'estimated_cost':{
+                    'type': 'number',
+                    'description': 'estimated cost of the damage in dollars. This is a float type number'
+                },
+                'car_brand':{
+                    'type': 'string',
+                    'description': 'car brand'
+                },
+                'car_model':{
+                    'type': 'string',
+                    'description': 'car model'
+                },
+                'car_year':{
+                    'type': 'string',
+                    'description': 'car year in string format'
+                }
+            },
+            'required': [
+                'hit','description','damaged_parts','estimated_cost','car_brand','car_model','car_year'
+            ]
+        }
+    }
+    all_tools = Tool.from_dict(
+        {
+            "function_declarations": [claim_spec]
+        }
+    )
+    generation_config={
+        "max_output_tokens": 2048,
+        "temperature": 0,
+        "top_p": 1,
+        "top_k": 32
+    }
+    response = model.generate_content(
+        prompt,
+        generation_config=generation_config,
+        tools=[all_tools],
+    )
+    print(response)
+    return response
 
 def add_mark_to_car(image,response):
     # Define the color based on the severity

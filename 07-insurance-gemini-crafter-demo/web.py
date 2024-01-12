@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from app import generate_insurance, add_mark_to_car
+from app import generate_insurance, add_mark_to_car, generate_insurance_fromjson
 import cv2
 
 # Create two columns
@@ -22,6 +22,7 @@ with col1:
             with st.spinner('Reading and summarizing document...'):
                 image_path = 'crashcar.jpeg'
                 response = generate_insurance(image_path)
+                # response = generate_insurance_fromjson(response)
                 image_shape = cv2.imread('car.jpeg')
                 # Call the function
                 marked_image = add_mark_to_car(image_shape, response)
