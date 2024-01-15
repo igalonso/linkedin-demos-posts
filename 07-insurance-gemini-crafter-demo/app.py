@@ -25,7 +25,7 @@ def get_image_base64(image_path):
 
     return base64_string
 
-def generate_insurance(image_path):
+def generate_insurance(image_path, temperature=0):
     image1=Part.from_data(data=base64.b64decode(get_image_base64(image_path)), mime_type="image/jpeg")
     json_format = {
         "hit":[{
@@ -39,14 +39,14 @@ def generate_insurance(image_path):
         "car_model": "car model",
         "car_year": "car year in string format"
     }
-    prompt = f"You are an insurace agent. Describe me the positions, and severities of the different zones of damage of this car in using this json format: {json_format} using double quotes without ```json. JSON:"
+    prompt = f"You are an insurace agent. Describe me the positions, and severities of the different zones of damage of this car. When a visible damage is seen, it should be, at least, low. If damage is noticeable, it should be high. Give me the response using this json format: {json_format} using double quotes without ```json. JSON:"
        
     model = GenerativeModel("gemini-pro-vision")
     responses = model.generate_content(
         [image1, prompt],
         generation_config={
             "max_output_tokens": 2048,
-            "temperature": 0,
+            "temperature": temperature,
             "top_p": 1,
             "top_k": 32
         },

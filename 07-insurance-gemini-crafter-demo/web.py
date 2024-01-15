@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 from app import generate_insurance, add_mark_to_car, generate_insurance_fromjson
 import cv2
+import os
 
 # Create two columns
 st.header("Car Damage Insurance Estimator")
@@ -11,6 +12,7 @@ col1, col2 = st.columns(2)
 
 # Add an image uploader to the first column
 with col1:
+    temp = st.slider("Temperature", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
@@ -18,10 +20,15 @@ with col1:
         image.save('crashcar.jpeg')
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         col2.empty()
+        # Check if file exists then delete it
+        if os.path.exists('marked_car.jpg'):
+            os.remove('marked_car.jpg')
+        else:
+            print('File does not exist')
         with col2:
             with st.spinner('Reading and summarizing document...'):
                 image_path = 'crashcar.jpeg'
-                response = generate_insurance(image_path)
+                response = generate_insurance(image_path, temp)
                 # response = generate_insurance_fromjson(response)
                 image_shape = cv2.imread('car.jpeg')
                 # Call the function
