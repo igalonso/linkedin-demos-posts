@@ -1,0 +1,11 @@
+pandas
+seaborn
+opencv-python
+image
+streamlit
+langchain
+numpy
+google-generativeai
+google-cloud-aiplatform
+tweepy
+python-dotenv
