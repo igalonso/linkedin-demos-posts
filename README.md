@@ -24,4 +24,4 @@ All of these demos are meant to be fast and dirty code showcasing a specific use
 - [05](05-er-triage-medpalm-demo/README.md) - [Linkedin Post: Emergency Room Triage](https://www.linkedin.com/posts/igngar_generativeai-generativeai-googlecloud-activity-7150478842384523264-dWkW?utm_source=share&utm_medium=member_desktop)
 - [06](06-legal-liaison-langchain-demo/README.md) - [Linkedin Post: Legal Liaison helper]()
 - [07](07-insurance-gemini-crafter-demo/README.md) - [Linkedin Post: Insurance Claim Document Helper]()
-- [08](08-looker-genai-demo/README.md) - [Linkedin Post: Insurance Claim Document Helper]()
+- [08](08-looker-genai-demo/README.md) - [Linkedin Post: Looker BI visualization]()
