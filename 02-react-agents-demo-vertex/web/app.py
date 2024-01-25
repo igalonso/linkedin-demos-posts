@@ -83,7 +83,7 @@ if generate:
             # output = st.empty()
             # output.style
             # with st_capture(output.text):
-        candidate_summary = agent.recruiter_personal_inspection(position, company_name, full_name, verbose)
+        candidate_summary = agent.recruiter_personal_inspection(position, company_name, full_name, verbose)["output"]
             # output.empty()
         with col3:
             info_agent_md.empty()
@@ -93,8 +93,9 @@ if generate:
             )
         # output = st.empty()
         # with st_capture(output.text):
-        salary_offer = agent.hr_salary_estimation(candidate_summary, verbose)
-        candidate_summary = candidate_summary + "\n- Salary Offer: " + salary_offer + "\n"
+        salary_offer = agent.hr_salary_estimation(candidate_summary, verbose)["output"]
+        print(salary_offer)
+        candidate_summary = candidate_summary + "\n- Salary Offer: " + salary_offer+ "\n"
         # output.empty()
         with col3:
             hr_agent_md.empty()

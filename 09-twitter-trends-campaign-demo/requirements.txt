@@ -1,0 +1,10 @@
+opencv-python
+image
+streamlit
+langchain
+numpy
+google-generativeai
+google-cloud-aiplatform
+tweepy
+python-dotenv
+Pillow==9.4.0
