@@ -5,6 +5,46 @@ st.title("Contact Center GenAI Enhancer")
 
 st.subheader("Upload an audio file of a customer service call and get a summary of the conversation, the sentiment, and the category of the call.")
 
+def get_background_color_sentiment(sentiment):
+    if sentiment == "positive":
+        return "#00cc00"
+    elif sentiment == "negative":
+        return "#ff0000"
+    elif sentiment == "neutral":
+        return "#ffcc00"
+    else:
+        return "#000000"
+
+def get_background_color_category(category):
+    if category == "sales":
+        return "#ffcc00"
+    elif category == "support":
+        return "#00cc00"
+    elif category == "billing":
+        return "#ff0000"
+    else:
+        return "#000000"
+def get_background_color_next_action(next_action):
+    if next_action == "follow_up":
+        return "#ffcc00"
+    elif next_action == "no_follow_up":
+        return "#00cc00"
+    elif next_action == "escalate":
+        return "#ff0000"
+    elif next_action == "no_escalate":
+        return "#000000"
+    elif next_action == "upsell":
+        return "#ffcc00"
+    elif next_action == "cross_sell":
+        return "#00cc00"
+    elif next_action == "no_upsell":
+        return "#ff0000"
+    elif next_action == "no_cross_sell":
+        return "#000000"
+    else:
+        return "#000000"
+
+
 col1, col2, col3 = st.columns(3)
 with col1:
     audio_file = st.file_uploader("Upload an audio file", type=["wav"])
@@ -13,7 +53,7 @@ with col1:
     generate = st.button("Transcribe")
 
 if generate:
-    with st.spinner('Reading and summarizing document...'):
+    with st.spinner('Transcribing audio file...'):
         with col2: 
             summary = transcribe_audio_file(audio_file, "telephony")
             # response = transcribe_audio_file("commercial_stereo.wav", "telephony")
@@ -27,18 +67,7 @@ if generate:
         with col3:
             conclussions = calling_gemini_magic(summary)
             st.write("**Summary of conversation:** "+ conclussions['summary_of_conversation'])
-            st.write("**Sentiment:** "+ conclussions['sentiment'])
+            st.markdown(f'**Sentiment:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_sentiment(conclussions["sentiment"])}; color: white;">{conclussions["sentiment"]}</div>', unsafe_allow_html=True)
             st.write("**Sentiment reason:** "+ conclussions['sentiment_reason'])
-            st.write("**Category:** "+ conclussions['category'])
-            st.write("**Next action:** "+ conclussions['next_action'])
-            # st.subheader("Summary of conversation")
-            # st.write(conclussions['summary_of_conversation'])
-            # st.subheader("Sentiment")
-            # st.write(conclussions['sentiment'])
-            # st.subheader("Sentiment reason")
-            # st.write(conclussions['sentiment_reason'])
-            # st.subheader("Category")
-            # st.write(conclussions['category'])
-            # st.subheader("Next action")
-            # st.write(conclussions['next_action'])
-            
+            st.markdown(f'**Category:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_category(conclussions["category"])}; color: white;">{conclussions["category"]}</div>', unsafe_allow_html=True)
+            st.markdown(f'**Next action:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_next_action(conclussions["next_action"])}; color: white;">{conclussions["next_action"]}</div>', unsafe_allow_html=True)

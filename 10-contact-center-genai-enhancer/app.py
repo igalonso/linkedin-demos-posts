@@ -40,8 +40,8 @@ def calling_gemini_magic(transcript):
         "sentiment": "One of these values: positive, negative, neutral",
         "sentiment_reason": "A reason for that sentiment",
         "summary_of_conversation": "A summary of the conversation",
-        "category": "One of these values: sales, support, billing, other",
-        "next_action": "one or many of these values: follow_up, no_follow_up, escalate, no_escalate, other, upsell, cross_sell, no_upsell, no_cross_sell, other",
+        "category": "One or more of these values: sales, support, billing, other",
+        "next_action": "one or more of these values: follow_up, no_follow_up, escalate, no_escalate, other, upsell, cross_sell, no_upsell, no_cross_sell, other",
     }
     prompt = f"Give me information of this conversation in the following format {json_format} using double quotes in the JSON\n CONVERSATION: {transcript}"
     parameters = {
