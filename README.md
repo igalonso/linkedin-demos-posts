@@ -23,6 +23,7 @@ All of these demos are meant to be fast and dirty code showcasing a specific use
 - [04](04-gemini-blind-feeling-demo/README.md) - [Linkedin Post: Feeling images with music](https://www.linkedin.com/posts/igngar_generativeai-genai-gemini-activity-7147993482320678913-AIo-?utm_source=share&utm_medium=member_desktop)
 - [05](05-er-triage-medpalm-demo/README.md) - [Linkedin Post: Emergency Room Triage](https://www.linkedin.com/posts/igngar_generativeai-generativeai-googlecloud-activity-7150478842384523264-dWkW?utm_source=share&utm_medium=member_desktop)
 - [06](06-legal-liaison-langchain-demo/README.md) - [Linkedin Post: Legal Liaison helper](https://www.linkedin.com/posts/igngar_generativeai-documentai-googlecloud-activity-7153068425311891456-IGPO?utm_source=share&utm_medium=member_desktop)
-- [07](07-insurance-gemini-crafter-demo/README.md) - [Linkedin Post: Insurance Claim Document Helper]()
+- [07](07-insurance-gemini-crafter-demo/README.md) - [Linkedin Post: Insurance Claim Document Helper](https://www.linkedin.com/feed/update/urn:li:activity:7155620210174001152/)
 - [08](08-looker-genai-demo/README.md) - [Linkedin Post: Looker BI visualization]()
 - [09](09-twitter-trends-campaign-demo/README.md) - [Linkedin Post: Twitter Trends campaign]()
+- [10](10-contact-center-genai-enhancer/README.md) - [Contact Center summarizer + analysis]()
