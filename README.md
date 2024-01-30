@@ -25,3 +25,4 @@ All of these demos are meant to be fast and dirty code showcasing a specific use
 - [06](06-legal-liaison-langchain-demo/README.md) - [Linkedin Post: Legal Liaison helper](https://www.linkedin.com/posts/igngar_generativeai-documentai-googlecloud-activity-7153068425311891456-IGPO?utm_source=share&utm_medium=member_desktop)
 - [07](07-insurance-gemini-crafter-demo/README.md) - [Linkedin Post: Insurance Claim Document Helper]()
 - [08](08-looker-genai-demo/README.md) - [Linkedin Post: Looker BI visualization]()
+- [09](09-twitter-trends-campaign-demo/README.md) - [Linkedin Post: Twitter Trends campaign]()
