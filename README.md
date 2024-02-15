@@ -28,3 +28,4 @@ All of these demos are meant to be fast and dirty code showcasing a specific use
 - [09](09-twitter-trends-campaign-demo/README.md) - [Linkedin Post: Twitter Trends campaign](https://www.linkedin.com/feed/update/urn:li:activity:7160686092998828033/)
 - [10](10-contact-center-genai-enhancer/README.md) - [Contact Center summarizer + analysis]()
 - [11](11-golf-buddy/README.md) - [Golf Buddy]()
+- [13](13-oscar-movie-recommender/README.md) - [Oscars Movie Recommender]()
