@@ -1,0 +1,9 @@
+streamlit
+wordcloud
+matplotlib
+pandas
+google-cloud-bigquery
+google-cloud-aiplatform
+google-cloud-texttospeech
+python-dotenv
+curlify
