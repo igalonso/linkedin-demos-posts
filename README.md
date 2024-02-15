@@ -27,6 +27,6 @@ All of these demos are meant to be fast and dirty code showcasing a specific use
 - [08](08-looker-genai-demo/README.md) - [Linkedin Post: Looker BI visualization](https://www.linkedin.com/posts/igngar_oneweekoneusecase-generativeai-googlecloud-activity-7158156917750538240-IBkU/?utm_source=share&utm_medium=member_desktop)
 - [09](09-twitter-trends-campaign-demo/README.md) - [Linkedin Post: Twitter Trends campaign](https://www.linkedin.com/feed/update/urn:li:activity:7160686092998828033/)
 - [10](10-contact-center-genai-enhancer/README.md) - [Contact Center summarizer + analysis]()
-- [11](11-golf-buddy/README.md) - [Linkedin Post: Golf Buddy]()
+- [11](11-golf-buddy/README.md) - [Golf Buddy]()
 - [12](12-kids-storyteller/README.md) - [Linkedin Post: Kids storyteller]()
-- [13](13-oscar-movie-recommender/README.md) - [Linkedin Post: Oscars Movie Recommender]()
+- [13](13-oscar-movie-recommender/README.md) - [Oscars Movie Recommender]()
