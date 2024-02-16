@@ -10,25 +10,18 @@ st.set_page_config(
 
 
 # Create 3 columns
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 
 # In the first column, ask for the name and age of the kid
+with col2:
+    st.header("Generated Content")
 with col1:
     st.header("Kid's Information")
     kid_name = st.text_input("Kid's Name")
     kid_age = st.number_input("Kid's Age", min_value=1)
-
-# In the third column, create placeholders for generated text and audio
-with col3:
-    st.header("Generated Content")
-    
-
-# In the second column, ask for the things the kid likes
-with col2:
-    st.header("Kid's Interests")
     kid_interests = st.text_input("Things the Kid Likes")
     if st.button("Generate Story"):
-        with col3:
+        with col2:
             story = app.generate_story(kid_name, kid_age, kid_interests)
             print(story)
             app.narrate_story(story, "story.mp3")
@@ -53,3 +46,4 @@ with col2:
                     except:
                         print("ouch")
                 i = i+1
+

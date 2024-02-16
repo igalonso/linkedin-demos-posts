@@ -8,7 +8,6 @@ import requests
 from PIL import Image
 from io import BytesIO
 from dotenv import load_dotenv
-import curlify
 
 load_dotenv()
 if __name__ == "__main__":
@@ -89,7 +88,7 @@ def send_request(headers, data):
   response = requests.post(endpoint, headers=headers, data=data)
 
   if response.status_code != 200:
-    print(curlify.to_curl(response.request))
+    print(response.request)
     # raise requests.exceptions.HTTPError(
     #     f"Error: {response.status_code} ({response.reason}) [{response.request.body}]")
 
@@ -118,6 +117,10 @@ def generate_images(prompt, **kwargs):
     return images
   
 def generate_summary(paragraph):
+    # json_format = {
+    #    "characters": "list of the name of the characters"
+    #   #  "adventure": "a brief description of the adventure without naming the characters",
+    # }
     prompt = f"Write a summary of the following paragraph: {paragraph}"
     generation_config = GenerationConfig(
         temperature=0.5,
@@ -132,11 +135,11 @@ def generate_summary(paragraph):
     return summary
 
 def generate_kid_images(paragraph, context):
-    prompt = f"An image for a book that represents the following paragraph in a minimalistic style: {paragraph} \n Use also the following context {context}"
+    prompt = f"An image for a book for young people that represents the following paragraph in a colorful yet simple style: {paragraph} \n Use also the following context {context}"
     images = generate_images(prompt, number_of_images=1, image_size=512)
     return images
 def generate_story(kid_name, kid_age, kid_interests):
-    prompt = f"You are a storyteller for kids. Write me a story that casts {kid_name}, a {kid_age} year old kid who likes {kid_interests}. Make it entretaining and easy to read and don't refer to the kid's age. The story should be at least 100 words long."
+    prompt = f"You are a storyteller for kids. Write me a story that casts {kid_name}, a {kid_age} year old kid who likes {kid_interests}. Make it entretaining and easy to read and don't refer to the kid's age nor refer to the kid as a kid. Make the kid feel like and adult. The story should be at least 100 words long."
     generation_config = GenerationConfig(
         temperature=0.5,
         top_p=1.0,
@@ -169,8 +172,8 @@ def narrate_story(story, output_filename):
     with open(output_filename, "wb") as out:
         out.write(response.audio_content)
 
-story = generate_story("Mario", 8, "robots")
-paragraphs = story.split("\n")
-for paragraph in paragraphs:
-    print(paragraph)
+# story = generate_story("Mario", 8, "robots")
+# paragraphs = story.split("\n")
+# for paragraph in paragraphs:
+#     print(paragraph)
 # generate_kid_images("In a bustling town, there lived an imaginative 8-year-old boy named Mario who adored robots. His eyes sparkled with wonder whenever he saw a robotic toy or a TV show featuring mighty machines.")

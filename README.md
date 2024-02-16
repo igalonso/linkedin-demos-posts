@@ -17,7 +17,7 @@ All of these demos are meant to be fast and dirty code showcasing a specific use
 
 ## LinkedIn Posts
 
-- [01]() - [Linkedin Post: Pandas Fighting](https://www.linkedin.com/posts/igngar_gemini-googlecloud-generativeai-activity-7140763241391063042-ZJ2f?utm_source=share&utm_medium=member_desktop)
+- [01](.README.md) - [Linkedin Post: Pandas Fighting](https://www.linkedin.com/posts/igngar_gemini-googlecloud-generativeai-activity-7140763241391063042-ZJ2f?utm_source=share&utm_medium=member_desktop)
 - [02](02-react-agents-demo-vertex/README.md) - [Linkedin Post: HR React Agents](https://www.linkedin.com/posts/igngar_gemini-palm2-llama2-activity-7141378371648741377-pTOK?utm_source=share&utm_medium=member_desktop)
 - [03](03-marketing-background-image/README.md) - [Linkedin Post: Marketing background images](https://www.linkedin.com/posts/igngar_genai-imagen-palm2-activity-7142506287753342976-c-NO?utm_source=share&utm_medium=member_desktop)
 - [04](04-gemini-blind-feeling-demo/README.md) - [Linkedin Post: Feeling images with music](https://www.linkedin.com/posts/igngar_generativeai-genai-gemini-activity-7147993482320678913-AIo-?utm_source=share&utm_medium=member_desktop)
@@ -26,7 +26,7 @@ All of these demos are meant to be fast and dirty code showcasing a specific use
 - [07](07-insurance-gemini-crafter-demo/README.md) - [Linkedin Post: Insurance Claim Document Helper](https://www.linkedin.com/feed/update/urn:li:activity:7155620210174001152/)
 - [08](08-looker-genai-demo/README.md) - [Linkedin Post: Looker BI visualization](https://www.linkedin.com/posts/igngar_oneweekoneusecase-generativeai-googlecloud-activity-7158156917750538240-IBkU/?utm_source=share&utm_medium=member_desktop)
 - [09](09-twitter-trends-campaign-demo/README.md) - [Linkedin Post: Twitter Trends campaign](https://www.linkedin.com/feed/update/urn:li:activity:7160686092998828033/)
-- [10](10-contact-center-genai-enhancer/README.md) - [Linkedin Post: Contact Center summarizer + analysis]()
+- [10](10-contact-center-genai-enhancer/README.md) - [Linkedin Post: Contact Center summarizer + analysis](https://www.linkedin.com/feed/update/urn:li:activity:7163222798096707586/)
 - [11](11-golf-buddy/README.md) - [Linkedin Post: Golf Buddy]()
 - [12](12-kids-storyteller/README.md) - [Linkedin Post: Kids storyteller]()
 - [13](13-oscar-movie-recommender/README.md) - [Linkedin Post: Oscars Movie Recommender]()
