@@ -1,0 +1,8 @@
+streamlit
+google-generativeai
+google-cloud-aiplatform
+python-dotenv
+langchain_community
+langchain
+google-cloud-discoveryengine
+streamlit-carousel
