@@ -10,6 +10,7 @@ import io
 from langchain_community.retrievers import GoogleVertexAISearchRetriever
 from langchain_community.llms import VertexAI
 from langchain.chains import RetrievalQA
+import streamlit as st
 
 load_dotenv()
 if __name__ == "__main__":
@@ -43,7 +44,7 @@ def get_product_query(query: str):
     print(result)
     return result
 
-
+@st.cache_data(show_spinner=False)
 def retrieveShoppingList(image_path):
     vertexai.init(project="gen-ai-igngar", location="us-central1")
     image=Part.from_data(data=base64.b64decode(get_image_base64(image_path)), mime_type="image/jpeg")
@@ -78,7 +79,7 @@ def retrieveShoppingList(image_path):
     shopping_list = shopping_list.replace('```', '')
     # print(shopping_list)
     return json.loads(shopping_list)
-
+@st.cache_data(show_spinner=False)
 def retrieveProductAlternatives(shoppingListItem):
     print("-------")
     print(shoppingListItem)
@@ -95,4 +96,4 @@ def retrieveProductAlternatives(shoppingListItem):
         alternatives.append({"name": name, "price": price, "currency": currency, "brand": brand, "id": id, "img_url": img_url})
     print(alternatives)
     print("-------")
-    return alternatives, id
+    return alternatives
