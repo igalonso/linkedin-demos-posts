@@ -15,8 +15,8 @@ INSERT INTO `gen-ai-igngar`.`supermarket`.`supermarket-skus`
 (id, source_id, sku, brand, category, name, price, currency, image_url, metadata)
 VALUES
 (1,'src001','SKU-001','Generic','Dairy','BUTTER',3.50,'EUR','https://www.allrecipes.com/thmb/YEHvUygNdvsUwzKttGh314d9n1M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sticks-of-butter-photo-by-twoellis-GettyImages-149134517-resized-3911123142a141eca2340a4bb63e0869.jpg', PARSE_JSON('{"size":"250g"}')),
-(2,'src001','SKU-002','Generic','Dairy','BUTTER',3.99,'EUR','https://i5.walmartimages.com/seo/Great-Value-Salted-Butter-Sticks-8-oz-2-Sticks_2a0259b0-1540-49b6-953b-2f4b35b2f1b7.2e62dbdb3d26a5b61d463e9e8f21bb89.jpeg', PARSE_JSON('{"size":"500g"}')),
-(3,'src001','SKU-003','Generic','Dairy','BUTTER',4.25,'EUR','https://assets.iceland.co.uk/i/iceland/just_like_butter_1kg_54526_T1.jpg', PARSE_JSON('{"size":"1kg"}')),
+(2,'src001','SKU-002','Great Value','Dairy','BUTTER',3.99,'EUR','https://i5.walmartimages.com/seo/Great-Value-Salted-Butter-Sticks-8-oz-2-Sticks_2a0259b0-1540-49b6-953b-2f4b35b2f1b7.2e62dbdb3d26a5b61d463e9e8f21bb89.jpeg', PARSE_JSON('{"size":"500g"}')),
+(3,'src001','SKU-003','Just like Butter','Dairy','BUTTER',4.25,'EUR','https://assets.iceland.co.uk/i/iceland/just_like_butter_1kg_54526_T1.jpg', PARSE_JSON('{"size":"1kg"}')),
 (4,'src002','SKU-004','Kellogs','Snacks','GRANOLA',4.99,'EUR','https://images.kglobalservices.com/www.kelloggs.co.za/en_za/product/product_969490/prod_img-1428240_za_06009710890516_2204262015_p_1.png', PARSE_JSON('{"size":"300g"}')),
 (5,'src002','SKU-005','Natruly','Snacks','GRANOLA',5.49,'EUR','https://storage.googleapis.com/catalog-pictures-carrefour-es/catalog/pictures/hd_510x_/8436575050157_1.jpg', PARSE_JSON('{"size":"500g"}')),
 (6,'src003','SKU-006','Pastoret','Dairy','GREEK YOGURT SKIMMED',2.00,'EUR','https://static.carrefour.es/hd_510x_/img_pim_food/945603_00_1.jpg', PARSE_JSON('{"size":"500g"}')),
