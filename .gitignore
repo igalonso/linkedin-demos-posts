@@ -165,3 +165,6 @@ crashcar*
 
 customers
 customers/*
+
+# bigapp/*
+# bigapp

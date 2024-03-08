@@ -3,8 +3,6 @@ import os
 import vertexai
 from vertexai.language_models import TextGenerationModel
 load_dotenv()
-import urllib
-import warnings
 from pathlib import Path as p
 
 import pandas as pd

@@ -1,0 +1,16 @@
+streamlit
+langchain
+langchain-community
+python-dotenv
+google-cloud-aiplatform
+google-api-python-client
+google-auth-oauthlib
+google-cloud-texttospeech
+spotipy
+pygame
+googlemaps
+pypdf
+numpy
+google-generativeai
+opencv-python
+image
