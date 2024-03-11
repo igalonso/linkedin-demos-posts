@@ -6,6 +6,7 @@ google-cloud-aiplatform
 google-api-python-client
 google-auth-oauthlib
 google-cloud-texttospeech
+google-cloud-speech
 spotipy
 pygame
 googlemaps
@@ -14,3 +15,10 @@ numpy
 google-generativeai
 opencv-python
 image
+tweepy
+python-dotenv
+Pillow==9.4.0
+google-cloud-documentai
+google-cloud-discoveryengine
+matplotlib
+seaborn
