@@ -22,3 +22,4 @@ google-cloud-documentai
 google-cloud-discoveryengine
 matplotlib
 seaborn
+beautifulsoup4
