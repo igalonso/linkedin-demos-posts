@@ -1,9 +1,0 @@
-google-cloud-aiplatform
-google-cloud-documentai
-streamlit
-python-dotenv
-google-search-results
-google-cloud-aiplatform
-google-cloud-discoveryengine
-langchain_community
-langchain

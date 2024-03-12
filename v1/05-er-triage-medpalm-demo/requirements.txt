@@ -1,9 +1,0 @@
-langchain
-streamlit
-google-cloud-aiplatform
-black
-python-dotenv
-google-generativeai
-pinecone-client
-google-api-python-client
-google-auth-oauthlib

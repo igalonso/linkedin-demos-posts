@@ -1,1 +1,0 @@
-All credits to this folk! https://github.com/LukaFontanilla/looker-explore-assistant - https://github.com/LukaFontanilla

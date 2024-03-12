@@ -1,1 +1,0 @@
-# linkedin-3-marketing-background-image
