@@ -166,6 +166,9 @@ crashcar*
 customers
 customers/*
 
+
+.vscode
+
 # bigapp/*
 # bigapp
 old
@@ -183,3 +186,4 @@ assets/feedback.pdf
 credentials.json
 description.mp3
 token.json
+list*

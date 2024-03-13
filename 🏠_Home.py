@@ -5,11 +5,8 @@ st.set_page_config(
     page_title="oneweekoneusecase",
     page_icon="👋",
 )
-
 st.write("# Hello LinkedIn Fam! 👋")
-
 st.sidebar.success("Select a demo above.")
-
 st.markdown(
     """
     This is a space where you can test all of the demos I've created!\n
