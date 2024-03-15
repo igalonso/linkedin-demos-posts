@@ -21,6 +21,7 @@ patient_3_symptoms = os.environ["PATIENT_SYMPTOMS_3"]
 patients = os.environ["NUM_PATIENTS_ER"]
 max_patients = os.environ["MAX_PATIENTS_ER"]
 
+
 def get_colors(severity):
     if severity == "Low":
         return ":green["
@@ -38,6 +39,27 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 st.title("ER Room")
+
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the capabilities of the GenAI to build triage services. The user can select the number of patients in the ER and the model will triage the patients based on their symptoms. The model will also provide a reasoning for the triage level."
+    how_to_use = "Select the number of patients in the ER and click on the button to triage the patients. The model will triage the patients based on their symptoms from Healthcare API. The model will also provide a reasoning for the triage level."
+    services_used = "Vertex AI, Model Garden, Healthcare API"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
+
 col1, col2, col3 = st.columns(3)
 
 

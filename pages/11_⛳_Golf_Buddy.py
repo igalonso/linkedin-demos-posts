@@ -14,8 +14,29 @@ def create_video_html(file):
 
 def create_gif_html(file_path):
     return f'<img src="{file_path}" width="200"/>'
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
 
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the capabilities of the Multimodal Gemini to analyze golf swings. It was fed with TopTracer screenshots via DocumentAI to read statistics. It also uses Vertex Search to provide context information about golf rules"
+    how_to_use = "Upload a video of your golf swing, select the club used, and the distance achieved. The model will analyze the swing and provide tips to improve the swing."
+    services_used = "Vertex AI, Gemini Pro Vision, Vertex Search, Document AI"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
+    
 col1, col2, col3 = st.columns(3)
+
+
 
 # First column: file uploaders for the videos
 with col1:

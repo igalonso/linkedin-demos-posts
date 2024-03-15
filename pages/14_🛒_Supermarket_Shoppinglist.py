@@ -18,6 +18,27 @@ def retrieve_alternative_list(shopping_list):
         alternatives.append(alternatives_list)
         index += 1
     return alternatives
+st.header("📝 Share your shopping list!")
+
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the multimodal capabilities of Gemini. The use uploads a photo of a shopping list and the model will provide alternatives for the products in the shopping list. The model queries Vertex Search with BigQuery as a datastore. We Used BigQueryML to generate categories on each product"
+    how_to_use = "Upload a photo of a shopping list and the model will provide alternatives for the products in the shopping list. Select the different products for each item and show that, when we don't have the product in stock, we can't provide alternatives and states it."
+    services_used = "Vertex AI, Gemini Pro Vision, Vertex Search, BigQuery"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
 
 
 # Create the main layout of the web page
@@ -28,7 +49,7 @@ with main_col3:
 # Populate the first column
 with main_col1:
     # picture = st.camera_input("Show me your shopping list:")
-    st.header("📝 Share your shopping list!")
+    
     # picture = st.camera_input("Show me your shopping list:")
     picture = st.file_uploader("Show me your shopping list:")
     if picture:

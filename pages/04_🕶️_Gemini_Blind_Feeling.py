@@ -10,8 +10,26 @@ from src.blind_feeling_demo_04 import *
 st.set_page_config(page_title="Blind Feeling Demo", page_icon="🕶️")
 
 st.markdown("# Blind Feeling Demo")
-st.sidebar.header("Blind Feeling Demo")
+st.title("Background Image Generator")
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
 
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the multimodal capabilities of Gemini. The user can upload a photo and the model will generate a description of the photo for blind people. The model also will selecta suitable song for the picture and play it "
+    how_to_use = "Upload a photo and the model will generate a description of the photo for blind people. The model also will selecta suitable song for the picture and play it"
+    services_used = "Vertex AI, Gemini pro vision, Spotify API"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
 col1, col2 = st.columns(2)
 with col1:
     uploaded_file = st.file_uploader("Choose a photo")

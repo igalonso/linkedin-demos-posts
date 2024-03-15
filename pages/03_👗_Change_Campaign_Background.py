@@ -11,6 +11,25 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 st.title("Background Image Generator")
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo is a showcase of the capabilities of the Imagen model to generate background images for products. The user can select a product and the model will generate a background image based on the description of the product. The user can also select the creativity of the model."
+    how_to_use = "Select the product you want to change the background to and click on the button to generate the background image. The model will generate a background image based on the description of the product. The user can also select the creativity of the model."
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown("Vertex AI, Model Garden, PaLM, Imagen")
+    st.divider()
+
 col1, col2 = st.columns(2)
 
 

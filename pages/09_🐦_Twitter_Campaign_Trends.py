@@ -13,6 +13,28 @@ st.set_page_config(
 st.title("Fast X Campaigns")
 col1, col2, col3 = st.columns(3)
 
+
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the capabilities of the GenAI to create campaigns for products based on recent information from Twitter. The user can select a product and a trending topic and the model will generate a tweet for the campaign."
+    how_to_use = "Select a product and a trending topic and click on the button to create a campaign tweet. The model will generate a tweet for the campaign based on the product and the trending topic."
+    services_used = "Vertex AI, Gemini Pro Vision, Imagen, Fake Twitter API"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
+
+
 products =[{"name":"iPhone 15 Pro","image":"assets/iphone.png", "description":"The iPhone 15 Pro is the best iPhone ever. It has a 6.7 inch screen, 5G, and a 120Hz refresh rate. It also has a 50MP camera, 8K video recording, and a 5000mAh battery."},{"name":"Samsung Galaxy S23 Ultra","image":"assets/samsung.png", "description":"The Samsung Galaxy S23 Ultra is a flagship Android smartphone unveiled in February 2023. It boasts a powerful processor, a versatile camera system, and a large, high-resolution display."},{"name":"Google Pixel 8 Pro","image":"assets/google.png", "description":"The Google Pixel 8 Pro is a flagship Android smartphone It boasts a powerful processor, a versatile camera system, and a large, high-resolution display."}]
 
 with col1:

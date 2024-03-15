@@ -23,3 +23,4 @@ google-cloud-discoveryengine
 matplotlib
 seaborn
 beautifulsoup4
+streamlit-carousel

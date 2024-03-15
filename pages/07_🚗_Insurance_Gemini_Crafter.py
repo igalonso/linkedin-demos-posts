@@ -6,7 +6,28 @@ import os
 
 # Create two columns
 st.header("Car Damage Insurance Estimator")
-st.subheader("Upload an image of a damaged car and get an estimate of the cost of the damage and a description of the damage.")
+
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the capabilities of GenAI to provide a description of the damage based on a photo. The user can upload an image of a damaged car and the model will estimate the cost of the damage and provide a description of the damage."
+    how_to_use = "Upload an image of a damaged car and the model will estimate the cost of the damage and provide a description of the damage."
+    services_used = "Vertex AI, Model Garden, Gemini Pro Vision"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
+
+# st.subheader("Upload an image of a damaged car and get an estimate of the cost of the damage and a description of the damage.")
 col1, col2 = st.columns(2)
 
 

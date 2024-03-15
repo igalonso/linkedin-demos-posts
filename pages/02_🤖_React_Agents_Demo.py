@@ -15,14 +15,31 @@ st.set_page_config(
 )
 
 st.markdown(
-    f"<div class='header'><h3> React Agents Demo with Vertex AI</h3><h3>(Google Cloud) </h3></div>",
+    f"<div class='header'><h3> React Agents Demo</h3></div>",
     unsafe_allow_html=True,
 )
-st.markdown(
-    f'<div>Welcome to the ReAct! We are going to do an example of a nice job offer to a candidate. For that we need to do some steps:<ul><li>Our recruiter agent will gather information about the candidate and the company using Tools.</li><li>That information will be shared with the HR department who is resposible to allocate budget for the salary.</li><li>With this information, the recruiter is going to draft an email to the candidate to explaion the position and the salary offer.</li></ul>LETS GO!</div>',
-    unsafe_allow_html=True
-)
-st.image("assets/diagram.png", width=700)
+# st.markdown(
+#     f'<div>Welcome to the ReAct! We are going to do an example of a nice job offer to a candidate. For that we need to do some steps:<ul><li>Our recruiter agent will gather information about the candidate and the company using Tools.</li><li>That information will be shared with the HR department who is resposible to allocate budget for the salary.</li><li>With this information, the recruiter is going to draft an email to the candidate to explaion the position and the salary offer.</li></ul>LETS GO!</div>',
+#     unsafe_allow_html=True
+# )
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    st.markdown('<span style="word-wrap:break-word;">Showcase what GenAI can do further than chatbots and search. Use agents to automate processes. In this case, we are going to do an example of a nice job offer to a candidate. For that we need to do some steps:\n- Our recruiter agent will gather information about the candidate and the company using Vertex AI.\n- That information will be shared with the HR department who is resposible to allocate budget for the salary.\n- With this information, the recruiter is going to draft an email to the candidate to explaion the position and the salary offer.\n</span>', unsafe_allow_html=True)
+    st.image("assets/diagram.png", width=700)
+    st.markdown("**How to use the demo:**")
+    st.markdown('<span style="word-wrap:break-word;">Fill the form with the information of the candidate and the company. Select the models for the agents and the temperature for the text generation. Click on the button to run the agents and wait for the results. The recruiter will gather information about the candidate and the company, then the HR department will allocate budget for the salary and finally the recruiter will draft an email to the candidate to explain the position and the salary offer.</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown("Vertex AI, Model Garden, PaLM, Gemini, Gmail API, Vertex Search, langchain")
+    st.divider()
+
 col1, col2, col3 = st.columns(3)
 with col1:
     full_name = st.text_input("Full Name of Candidate", value="Ignacio Garcia")

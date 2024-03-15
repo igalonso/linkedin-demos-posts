@@ -3,7 +3,27 @@ from src.contact_center_enhancer_10 import transcribe_audio_file, calling_gemini
 
 st.title("Contact Center GenAI Enhancer")
 
-st.subheader("Upload an audio file of a customer service call and get a summary of the conversation, the sentiment, and the category of the call.")
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the capabilities of GenAI to enhance contact center services. The user can upload an audio file of a customer service call and the model will provide a summary of the conversation, the sentiment, and the category of the call."
+    how_to_use = "Upload an audio file of a customer service call and get a summary of the conversation, the sentiment, and the category of the call."
+    services_used = "Vertex AI, Gemini Pro, Speech-to-Text API, Model Garden"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
+
+# st.subheader("Upload an audio file of a customer service call and get a summary of the conversation, the sentiment, and the category of the call.")
 
 def get_background_color_sentiment(sentiment):
     if sentiment == "positive":

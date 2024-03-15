@@ -10,6 +10,26 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the capabilities of Gemini to recommend movies based on categories and Oscar winners. We used BigQuery to gather the data and Gemini to create the recommendation model. The user can select categories and movies and the model will recommend a movie based on the categories and movies selected."
+    how_to_use = "Select categories and movies and click on the button to get a movie recommendation. The model will recommend a movie based on the categories and movies selected."
+    services_used = "Vertex AI, Gemini, BigQuery ML"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
+
 # Create a Streamlit layout with two columns
 col1, col2 = st.columns(2)
 

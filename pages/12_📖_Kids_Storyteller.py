@@ -8,6 +8,25 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases Google Cloud Capabilities with GenAI to generate stories for kids. It uses the Gemini model to generate a story based on the kid's name, age, and interests. The model will also provide images and a summary of the story using Imagen."
+    how_to_use = "Enter the kid's name, age, and interests and click on the button to generate the story. The model will generate a story based on the kid's name, age, and interests. The model will also provide images and a summary of the story using Imagen."
+    services_used = "Vertex AI, Gemini, PaLM, Imagen"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
 
 # Create 3 columns
 col1, col2 = st.columns(2)

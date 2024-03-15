@@ -36,6 +36,26 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+if st.button('Instructions'):
+    # Toggle the state when button is clicked
+    st.session_state['show_text'] = not st.session_state['show_text']
+
+# Only show the text if the state is True
+if st.session_state['show_text']:
+    st.markdown("**Purpose of demo:**")
+    explanation = "This demo showcases the capabilities of GenAI to summarize legal documents. The user can upload a legal document and the model will summarize the document based on the method selected."
+    how_to_use = "Select a method to summarize the document, a challenge you might be facing (i.e. 'I want to be explained for a 10 years old.') and click on the button to summarize the document. The model will summarize the document based on the method selected."
+    services_used = "Vertex AI, Model Garden, Gemini, Document AI"
+    st.markdown(f'<span style="word-wrap:break-word;">{explanation}</span>', unsafe_allow_html=True)
+    st.markdown("**How to use the demo:**")
+    st.markdown(f'<span style="word-wrap:break-word;">{how_to_use}</span>', unsafe_allow_html=True)
+    st.markdown("**Services used:**")
+    st.markdown(services_used, unsafe_allow_html=True)
+    st.divider()
+
 col1, col2 = st.columns(2)
 
 with col1:
