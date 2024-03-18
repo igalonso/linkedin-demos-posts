@@ -68,13 +68,18 @@ def get_background_color_next_action(next_action):
 col1, col2, col3 = st.columns(3)
 with col1:
     audio_file = st.file_uploader("Upload an audio file", type=["wav"])
-    if audio_file is not None:
+    if audio_file is not None or st.button("Use example"):
+        if audio_file is None:
+            audio_file = open("assets/commercial_stereo.wav", "rb")
+            st.text("Using example audio file")
         st.audio(audio_file)
     generate = st.button("Transcribe")
 
 if generate:
     with st.spinner('Transcribing audio file...'):
-        with col2: 
+        with col2:
+            if audio_file is None:
+                audio_file = open("assets/commercial_stereo.wav", "rb") 
             summary = transcribe_audio_file(audio_file, "telephony")
             # response = transcribe_audio_file("commercial_stereo.wav", "telephony")
             for alternative in summary:

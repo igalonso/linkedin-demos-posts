@@ -71,7 +71,7 @@ def getLLM(temperture, model):
     print("\U0001F916 Model used for this agent: " + llm.model_name)
     return llm
 
-gmail_tools = [gmail_toolkit.get_tools()[0]]
+gmail_tools = [gmail_toolkit.get_tools()[1]]
 
 def get_gmail_agent(temperture=0) -> AgentExecutor:
     #print(f"Temperature: {temperture}")

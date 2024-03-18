@@ -64,19 +64,29 @@ with col1:
         method_type = "map_reduce"
     elif method_type == "Refine":
         method_type = "refine"
-    challenge = st.text_input("***What is the challenge you are facing?***")
+    challenge = st.text_input("***What is the challenge you are facing?***", "I want to be explained for a 10 years old.")
     uploaded_file = st.file_uploader("***Which file would you like to summarize?***")
     
     if uploaded_file is not None:
         col2.empty()
         with open(os.path.join('temp', uploaded_file.name), 'wb') as f:
             shutil.copyfileobj(uploaded_file, f)
-        st.success("Saved File")
+            st.success("Saved File")
         with col2:
             with st.spinner('Reading and summarizing document...'):    
                 displayPDF("temp/" + uploaded_file.name)
                 # formal_summary = read_and_formally_summarize_text("data/" + uploaded_file.name)
                 formal_summary = summarize_pdf("temp/" + uploaded_file.name, method_type)
+                summary = text_summarization(formal_summary,challenge)
+                st.write("\n\n:red[Simple Summary]")
+                st.write(summary)
+    if st.button("Use example"):
+        uploaded_file = "assets/06_legal_liaison.pdf"
+        with col2:
+            with st.spinner('Reading and summarizing document...'):
+                displayPDF(uploaded_file)
+                # formal_summary = read_and_formally_summarize_text(uploaded_file)
+                formal_summary = summarize_pdf(uploaded_file, method_type)
                 summary = text_summarization(formal_summary,challenge)
                 st.write("\n\n:red[Simple Summary]")
                 st.write(summary)

@@ -58,3 +58,29 @@ with col1:
         st.write(f"**Reasoning**: {description['reasoning']}")
         start_song(description['song_name'], description['author']) #fix this
         text_to_speech(description['description'], 'description.mp3')
+    if st.button("Use Example"):
+        image = st.image("assets/image.jpg")
+        # Create the temp directory if it doesn't exist
+        if not os.path.exists('temp'):
+            os.makedirs('temp')
+        # Write the uploaded file to disk
+        with open("assets/image.jpg", "rb") as img_temp:
+            with open(os.path.join('temp', "image.jpg"), 'wb') as f:
+                f.write(img_temp.read())
+        img = os.path.join('temp',"image.jpg")
+        metadata = get_geotagging(img)
+
+        # Get the latitude and longitude in decimal degrees
+        lat = get_decimal_from_dms(metadata['GPSLatitude'], metadata['GPSLatitudeRef'])
+        lon = get_decimal_from_dms(metadata['GPSLongitude'], metadata['GPSLongitudeRef'])
+        address = get_location_by_coordinates(lat, lon)
+        description = agent_start(0, address,img )
+        description = description.replace('```json', '')
+        description = description.replace('```', '')
+        description = json.loads(description)
+        st.write(f"**Description**: {description['description']}")
+        st.write(f"**Song Name**: {description['song_name']}")
+        st.write(f"**Author**: {description['author']}")
+        st.write(f"**Reasoning**: {description['reasoning']}")
+        start_song(description['song_name'], description['author']) #fix this
+        text_to_speech(description['description'], 'description.mp3')

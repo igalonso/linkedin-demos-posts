@@ -183,8 +183,11 @@ assets/sa.json
 assets/token*
 assets/test.py
 assets/feedback.pdf
+assets/toptracer-scrapping/*
 credentials.json
 description.mp3
 token.json
 list*
 pages/15*
+# assets/11_golf_buddy.MP4
+# assets/06_legal_liaison.pdf

@@ -46,6 +46,7 @@ with col1:
     company_name = st.text_input("Full Name of the company offering", value="Nintendo")
     position=st.text_input("Full Name of the postion offered",value="Solutions Architect")
     testing = st.checkbox("Testing", value=True)
+    email_to_send_to = st.text_input("Email to send the draft", value="example@gmail.com")
 with col2:
     
     model_for_information_gathering = st.selectbox("Select a model for information gathering", ("text-bison@002","text-bison@001", "text-unicorn","gemini-pro"))
@@ -102,8 +103,8 @@ if generate:
                 f'<div class="gif_holder"><img  src="data:image/gif;base64,{email_agent_image}" alt="HR Agent GIF" style="border: solid red; width: 100%"></div>',
                 unsafe_allow_html=True,
             )
-        agent.recruiter_email_creator(candidate_summary,full_name, company_name, position, verbose)
+        agent.recruiter_email_creator(candidate_summary,full_name, company_name, position,email_to_send_to, verbose)
         email_agent_md.empty()
         st.balloons()
-        st.success("Agent finished! - Now you can access your mail to find out the draft offer")  
-        st.write("[gmail link to drafts](https://mail.google.com/mail/u/0/#drafts)")
+        st.success("Agent finished! - Now you can access your mail to find out the draft offer. Keep in mind that it could be in your spam folder.")  
+        # st.write("[gmail link to drafts](https://mail.google.com/mail/u/0/#drafts)")

@@ -35,7 +35,10 @@ col1, col2 = st.columns(2)
 with col1:
     temp = st.slider("Temperature", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
-    if uploaded_file is not None:
+    if uploaded_file is not None or st.button("Use example"):
+        if uploaded_file is None:
+            uploaded_file = "assets/crashcar.jpeg"
+            st.text("Using example image")
         image = Image.open(uploaded_file)
         image = image.convert('RGB')
         image.save('crashcar.jpeg')

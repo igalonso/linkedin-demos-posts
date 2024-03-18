@@ -46,13 +46,17 @@ main_col1, main_col2, main_col3= st.columns(3)
 with main_col3:
     st.header("🛒 Shopping cart")
     st.write("This is your shopping cart.")
+    
 # Populate the first column
 with main_col1:
     # picture = st.camera_input("Show me your shopping list:")
     
     # picture = st.camera_input("Show me your shopping list:")
     picture = st.file_uploader("Show me your shopping list:")
-    if picture:
+    st.image("assets/lista_compra.jpeg", caption="sample", width=100)
+    if picture or st.button("Use sample shopping list"):
+        if st.button:
+            picture = "assets/lista_compra.jpeg"
         st.image(picture, caption='Uploaded Image.', use_column_width=True)
         image = Image.open(picture)
         image = image.convert('RGB')

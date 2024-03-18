@@ -37,9 +37,9 @@ col1, col2 = st.columns(2)
 with col1:
     st.header("Movie Categories and Oscar Winners")
     # Create a multiselect widget for categories
-    selected_categories = st.multiselect('Select Categories', app.return_unique_categories())
+    selected_categories = st.multiselect('Select Categories', app.return_unique_categories(), default=["drama", "fantasy"])
     # Create a multiselect widget for movies
-    selected_movies = st.multiselect('Select movies', app.return_unique_movies())
+    selected_movies = st.multiselect('Select movies', app.return_unique_movies(),default=["2022, Avatar: The Way of Water", "2022, Top Gun: Maverick"])
     
     # Button for movie recommendations
     if st.button('Recommend me movies'):

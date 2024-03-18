@@ -42,18 +42,18 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.header("Upload your videos")
     front_swing = st.file_uploader("Front golf swing video", type=["mp4", "mov", "avi", "wmv", "flv", "mkv", "webm", "m4v", "mpg", "mpeg", "3gp", "3g2", "mxf", "roq", "nsv", "flv", "f4v", "f4p", "f4a", "f4b"])
-    if front_swing is not None:
-        with open('temp/front_swing.mp4', 'wb') as f:
-            f.write(front_swing.read())
-        st.markdown(create_video_html("temp/front_swing.mp4"), unsafe_allow_html=True)
-    # posture = st.file_uploader("Image of your swing posture", type=["jpeg", "png", "jpg", "webp"])
-    # if posture is not None:
-    #     st.image(posture)
-    # hand_grip = st.file_uploader("Hand grip video", type=["jpeg", "png", "jpg", "webp"])
-    # if hand_grip is not None:
-    #     st.image(hand_grip)
-
-# Second column: selectbox for the club and number input for the distance
+    st.markdown(create_video_html("assets/11_golf_buddy.MP4"), unsafe_allow_html=True)
+    if front_swing is not None or st.button("Use example"):
+        if front_swing is None:
+            front_swing = open("assets/11_golf_buddy.MP4", "rb")
+            with open('temp/front_swing.mp4', 'wb') as f:
+                f.write(front_swing.read())
+            st.text("Using example video")
+        else:
+            with open('temp/front_swing.mp4', 'wb') as f:
+                f.write(front_swing.read())
+            st.markdown(create_video_html("temp/front_swing.mp4"), unsafe_allow_html=True) 
+        
 with col2:
     st.header("Club and distance")
     club = st.selectbox("Select your club", ["Driver", "3-wood", "7-iron", "Pitching Wedge"])
@@ -74,9 +74,6 @@ with col2:
                     st.write(f"**{tip['tip']}**")
                     st.write("**Explanation:** ", tip["explanation"])
                     st.write("**Why:**", tip["why"])
-            # else:
-            #     st.error("Please upload all the videos and images")
-        
         
 
 

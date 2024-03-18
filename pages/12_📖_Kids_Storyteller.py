@@ -36,9 +36,9 @@ with col2:
     st.header("Generated Content")
 with col1:
     st.header("Kid's Information")
-    kid_name = st.text_input("Kid's Name")
-    kid_age = st.number_input("Kid's Age", min_value=1)
-    kid_interests = st.text_input("Things the Kid Likes")
+    kid_name = st.text_input("Kid's Name", value="Tommy")
+    kid_age = st.number_input("Kid's Age", min_value=1, value=8)
+    kid_interests = st.text_input("Things the Kid Likes", value="dinosaurs, space, robots")
     if st.button("Generate Story"):
         with col2:
             story = app.generate_story(kid_name, kid_age, kid_interests)
