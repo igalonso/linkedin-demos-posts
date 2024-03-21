@@ -2,7 +2,7 @@
 import streamlit as st
 import src.supermarket_shoppinglist_14 as  app
 from PIL import Image
-st.set_page_config(layout='wide')
+
 max_items = 6
 
 # @st.cache_data(show_spinner=False)
@@ -18,8 +18,14 @@ def retrieve_alternative_list(shopping_list):
         alternatives.append(alternatives_list)
         index += 1
     return alternatives
-st.header("📝 Share your shopping list!")
-
+# st.header("📝 Share your shopping list!")
+st.set_page_config(
+    # page_icon="web/img/robot-1.1s-200px.png",
+    layout="wide",
+    page_title="🛒 Supermarket Shoppinglist",
+    initial_sidebar_state="expanded",
+)
+st.title("🛒 Supermarket Shoppinglist")
 if 'show_text' not in st.session_state:
     st.session_state['show_text'] = False
 
@@ -49,15 +55,16 @@ with main_col3:
     
 # Populate the first column
 with main_col1:
-    # picture = st.camera_input("Show me your shopping list:")
-    
-    # picture = st.camera_input("Show me your shopping list:")
-    picture = st.file_uploader("Show me your shopping list:")
-    st.image("assets/lista_compra.jpeg", caption="sample", width=100)
-    if picture or st.button("Use sample shopping list"):
-        if st.button:
-            picture = "assets/lista_compra.jpeg"
-        st.image(picture, caption='Uploaded Image.', use_column_width=True)
+    # picture = st.image("assets/lista_compra.jpeg", caption="sample", width=100)
+    picture = st.file_uploader("Upload a photo of your shopping list", type=["jpg", "jpeg", "png"])
+    with open("assets/lista_compra.jpeg", "rb") as file:
+        btn = st.download_button(
+            label="Download sample image",
+            data=file,
+            file_name="lista_compra.jpeg",
+            mime="image/jpeg"
+          )
+    if picture:
         image = Image.open(picture)
         image = image.convert('RGB')
         image.save('list.jpeg')

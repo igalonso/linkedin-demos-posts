@@ -1,7 +1,12 @@
 import streamlit as st
 from src.contact_center_enhancer_10 import transcribe_audio_file, calling_gemini_magic
-
-st.title("Contact Center GenAI Enhancer")
+st.set_page_config(
+    # page_icon="web/img/robot-1.1s-200px.png",
+    layout="wide",
+    page_title="🎧 Contact Center GenAI Enhancer",
+    initial_sidebar_state="expanded",
+)
+st.title("🎧 Contact Center GenAI Enhancer")
 
 if 'show_text' not in st.session_state:
     st.session_state['show_text'] = False
@@ -68,14 +73,16 @@ def get_background_color_next_action(next_action):
 col1, col2, col3 = st.columns(3)
 with col1:
     audio_file = st.file_uploader("Upload an audio file", type=["wav"])
-    if audio_file is not None or st.button("Use example"):
-        if audio_file is None:
-            audio_file = open("assets/commercial_stereo.wav", "rb")
-            st.text("Using example audio file")
+    with open("assets/commercial_stereo.wav", "rb") as file:
+        btn = st.download_button(
+            label="Download sample audio",
+            data=file,
+            file_name="commercial_stereo.wav",
+            mime="audio/wav"
+        )
+    if audio_file:
         st.audio(audio_file)
-    generate = st.button("Transcribe")
-
-if generate:
+if audio_file:
     with st.spinner('Transcribing audio file...'):
         with col2:
             if audio_file is None:

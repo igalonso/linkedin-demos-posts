@@ -6,10 +6,10 @@ import src.oscars_movie_recommender_13 as app
 st.set_page_config(
     # page_icon="web/img/robot-1.1s-200px.png",
     layout="wide",
-    page_title="Movie Recommender",
+    page_title="🎥 Oscar Movie Recommender",
     initial_sidebar_state="expanded",
 )
-
+st.title("🎥 Oscar Movie Recommender")
 if 'show_text' not in st.session_state:
     st.session_state['show_text'] = False
 
@@ -35,7 +35,7 @@ col1, col2 = st.columns(2)
 
 # Generate word clouds in the first column
 with col1:
-    st.header("Movie Categories and Oscar Winners")
+    # st.header("Movie Categories and Oscar Winners")
     # Create a multiselect widget for categories
     selected_categories = st.multiselect('Select Categories', app.return_unique_categories(), default=["drama", "fantasy"])
     # Create a multiselect widget for movies

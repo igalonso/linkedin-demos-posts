@@ -4,7 +4,7 @@ import src.golf_buddy_11 as app
 import json
 st.set_page_config(layout='wide')
 # Create three columns
-st.title("⛳ Golf Buddy ⛳")
+st.title("⛳ Golf Buddy")
 
 def create_video_html(file):
     with open(file, "rb") as file:
@@ -42,31 +42,33 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.header("Upload your videos")
     front_swing = st.file_uploader("Front golf swing video", type=["mp4", "mov", "avi", "wmv", "flv", "mkv", "webm", "m4v", "mpg", "mpeg", "3gp", "3g2", "mxf", "roq", "nsv", "flv", "f4v", "f4p", "f4a", "f4b"])
-    st.markdown(create_video_html("assets/11_golf_buddy.MP4"), unsafe_allow_html=True)
-    if front_swing is not None or st.button("Use example"):
-        if front_swing is None:
-            front_swing = open("assets/11_golf_buddy.MP4", "rb")
-            with open('temp/front_swing.mp4', 'wb') as f:
-                f.write(front_swing.read())
-            st.text("Using example video")
-        else:
-            with open('temp/front_swing.mp4', 'wb') as f:
-                f.write(front_swing.read())
-            st.markdown(create_video_html("temp/front_swing.mp4"), unsafe_allow_html=True) 
+    with open("assets/11_golf_buddy.MP4", "rb") as file:
+        btn = st.download_button(
+            label="Download sample video",
+            data=file,
+            file_name="11_golf_buddy.MP4",
+            mime="video/mp4"
+            )
+    
+    if front_swing:
+        front_swing = open("assets/11_golf_buddy.MP4", "rb")
+        with open('temp/front_swing.mp4', 'wb') as f:
+            f.write(front_swing.read())
+        
         
 with col2:
     st.header("Club and distance")
     club = st.selectbox("Select your club", ["Driver", "3-wood", "7-iron", "Pitching Wedge"])
-    distance = st.slider("Enter the distance achieved", min_value=0, max_value=400)
+    distance = st.slider("Enter the distance achieved", min_value=0, max_value=400, value=200, step=10)
     st.write(f"You selected {club} and {distance} meters")
     if st.button("Give me tips"):
         with st.spinner("Analyzing your swing..."):
-            swing, positive = app.button_started(front_swing, club, distance)
+            swing = app.button_started(front_swing, club, distance)
             st.subheader("Tips")
             for tip in swing["tips"]:
                 st.write(f"*{tip['emoji']} {tip['tip']}*", key=tip['tip'])
             st.subheader("Positive feedback")
-            for positive in positive:
+            for positive in swing["positives"]:
                 st.write(f"*✅{positive['feedback']}*")
             with col3:
                 st.header("Your swing")

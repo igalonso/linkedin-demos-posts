@@ -8,16 +8,13 @@ import src.react_agents_demo_agent_02 as agent
 import os
 
 st.set_page_config(
-    page_icon="assets/robot-1.1s-200px.png",
+    #page_icon="assets/robot-1.1s-200px.png",
     layout="wide",
-    page_title="React Agents Demo with Vertex AI (Google Cloud)",
+    page_title="React Agents",
     initial_sidebar_state="expanded",
 )
+st.title("🤖 React Agents Demo")
 
-st.markdown(
-    f"<div class='header'><h3> React Agents Demo</h3></div>",
-    unsafe_allow_html=True,
-)
 # st.markdown(
 #     f'<div>Welcome to the ReAct! We are going to do an example of a nice job offer to a candidate. For that we need to do some steps:<ul><li>Our recruiter agent will gather information about the candidate and the company using Tools.</li><li>That information will be shared with the HR department who is resposible to allocate budget for the salary.</li><li>With this information, the recruiter is going to draft an email to the candidate to explaion the position and the salary offer.</li></ul>LETS GO!</div>',
 #     unsafe_allow_html=True
@@ -45,15 +42,18 @@ with col1:
     full_name = st.text_input("Full Name of Candidate", value="Ignacio Garcia")
     company_name = st.text_input("Full Name of the company offering", value="Nintendo")
     position=st.text_input("Full Name of the postion offered",value="Solutions Architect")
-    testing = st.checkbox("Testing", value=True)
+    # testing = st.checkbox("Testing", value=True)
+    testing = True
     email_to_send_to = st.text_input("Email to send the draft", value="example@gmail.com")
 with col2:
     
-    model_for_information_gathering = st.selectbox("Select a model for information gathering", ("text-bison@002","text-bison@001", "text-unicorn","gemini-pro"))
-    model_for_hr_salary_decision = st.selectbox("Select a model for HR salary decision", ("text-bison@001","text-bison@002", "text-unicorn","gemini-pro"))
-    model_for_email_draft = st.selectbox("Select a model for email draft", ("text-unicorn", "text-bison@001","text-bison@002","text-bison-32k"))
-    temperature_slider = st.slider("Temperature", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
-    temperature_slider_email = st.slider("Temperature for email", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
+    model_for_information_gathering = st.selectbox("Select a model for information gathering", ("text-bison@002","text-bison@001", "text-unicorn","gemini-pro"),disabled=True)
+    model_for_hr_salary_decision = st.selectbox("Select a model for HR salary decision", ("text-bison@001","text-bison@002", "text-unicorn","gemini-pro"),disabled=True)
+    model_for_email_draft = st.selectbox("Select a model for email draft", ("text-unicorn", "text-bison@001","text-bison@002","text-bison-32k"),disabled=True)
+    # temperature_slider = st.slider("Temperature", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
+    # temperature_slider_email = st.slider("Temperature for email", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
+    temperature_slider = 0.0
+    temperature_slider_email = 0.0
     verbose = False
     generate = st.button("Run Agent🤖")
     os.environ["TEMPERATURE_AGENTS"] = str(temperature_slider)
@@ -107,4 +107,3 @@ if generate:
         email_agent_md.empty()
         st.balloons()
         st.success("Agent finished! - Now you can access your mail to find out the draft offer. Keep in mind that it could be in your spam folder.")  
-        # st.write("[gmail link to drafts](https://mail.google.com/mail/u/0/#drafts)")

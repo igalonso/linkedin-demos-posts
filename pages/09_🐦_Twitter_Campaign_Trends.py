@@ -7,16 +7,10 @@ import src.twitter_campaign_trends_09 as app
 st.set_page_config(
     # page_icon="web/img/robot-1.1s-200px.png",
     layout="wide",
-    page_title="Fast X Campaigns",
+    page_title="🐦 Fast X Campaigns",
     initial_sidebar_state="expanded",
 )
-st.title("Fast X Campaigns")
-col1, col2, col3 = st.columns(3)
-
-
-if 'show_text' not in st.session_state:
-    st.session_state['show_text'] = False
-
+st.title("🐦 Fast X Campaigns")
 if st.button('Instructions'):
     # Toggle the state when button is clicked
     st.session_state['show_text'] = not st.session_state['show_text']
@@ -33,6 +27,16 @@ if st.session_state['show_text']:
     st.markdown("**Services used:**")
     st.markdown(services_used, unsafe_allow_html=True)
     st.divider()
+
+col1, col2, col3 = st.columns(3)
+
+
+if 'show_text' not in st.session_state:
+    st.session_state['show_text'] = False
+
+
+
+
 
 
 products =[{"name":"iPhone 15 Pro","image":"assets/iphone.png", "description":"The iPhone 15 Pro is the best iPhone ever. It has a 6.7 inch screen, 5G, and a 120Hz refresh rate. It also has a 50MP camera, 8K video recording, and a 5000mAh battery."},{"name":"Samsung Galaxy S23 Ultra","image":"assets/samsung.png", "description":"The Samsung Galaxy S23 Ultra is a flagship Android smartphone unveiled in February 2023. It boasts a powerful processor, a versatile camera system, and a large, high-resolution display."},{"name":"Google Pixel 8 Pro","image":"assets/google.png", "description":"The Google Pixel 8 Pro is a flagship Android smartphone It boasts a powerful processor, a versatile camera system, and a large, high-resolution display."}]

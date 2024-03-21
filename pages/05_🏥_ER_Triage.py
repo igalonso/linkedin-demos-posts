@@ -35,10 +35,10 @@ def get_colors(severity):
 st.set_page_config(
     # page_icon="web/img/robot-1.1s-200px.png",
     layout="wide",
-    page_title="ER Room Triage",
+    page_title="🏥 ER Room Triage",
     initial_sidebar_state="expanded",
 )
-st.title("ER Room")
+st.title("🏥 ER Room Triage")
 
 if 'show_text' not in st.session_state:
     st.session_state['show_text'] = False
@@ -73,7 +73,8 @@ with col1:
             st.write("**Patient Symptoms:** "+ patient_1_symptoms)
             result = json.loads(triage_patient(patient_1_symptoms,patient_1,max_patients,patients))
             st.write("**Triage Level:** "+ get_colors(result["triage_level"])+result["triage_level"]+"]")
-            st.write("**Reasoning:** "+ result["reasoning"])        
+            st.write("**Reasoning:** "+ result["reasoning"])
+            st.write("**Patient History:** "+ result["patient_history"])         
                
     st.image("assets/patient.png", width=75)
     if st.button("Enter the room", key="Patient 2"):
@@ -84,7 +85,8 @@ with col1:
             st.write("**Patient Symptoms:** "+ patient_2_symptoms)
             result = json.loads(triage_patient(patient_2_symptoms,patient_2,max_patients,patients))
             st.write("**Triage Level:** "+ get_colors(result["triage_level"])+result["triage_level"]+"]")
-            st.write("**Reasoning:** "+ result["reasoning"]) 
+            st.write("**Reasoning:** "+ result["reasoning"])
+            st.write("**Patient History:** "+ result["patient_history"]) 
     
     st.image("assets/patient.png", width=75)
     if st.button("Enter the room", key="Patient 3"):
@@ -95,7 +97,8 @@ with col1:
             st.write("**Patient Symptoms:** "+ patient_3_symptoms)
             result = json.loads(triage_patient(patient_3_symptoms,patient_3,max_patients,patients))
             st.write("**Triage Level:** "+ get_colors(result["triage_level"])+result["triage_level"]+"]")
-            st.write("**Reasoning:** "+ result["reasoning"]) 
+            st.write("**Reasoning:** "+ result["reasoning"])
+            st.write("**Patient History:** "+ result["patient_history"])  
     
 with col2:
     st.image("assets/er.png")

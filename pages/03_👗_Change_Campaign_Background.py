@@ -7,10 +7,10 @@ import src.change_campagin_background_03 as app
 st.set_page_config(
     # page_icon="web/img/robot-1.1s-200px.png",
     layout="wide",
-    page_title="Background Image Generator",
+    page_title="👗 Change Campaign Background",
     initial_sidebar_state="expanded",
 )
-st.title("Background Image Generator")
+st.title("👗 Change Campaign Background")
 if 'show_text' not in st.session_state:
     st.session_state['show_text'] = False
 
@@ -36,15 +36,15 @@ col1, col2 = st.columns(2)
 with col1:
     #creativity = st.slider("Creativity", min_value=0.0, max_value=1.0, value=0.5, step=0.1)
     creativity = 0.5
-    product = st.radio("Select a product: ", ("Springfield Jersey Cable Knit", "Springfield Cardigan 'Maureen'"))
-    if product == "Springfield Jersey Cable Knit":
+    product = st.radio("Select a product: ", ("Jersey Cable Knit", "Cardigan 'Maureen'"))
+    if product == "Jersey Cable Knit":
         st.image("assets/image1.jpeg", width=300)
-        product_name = "Springfield Jersey Cable Knit"
+        product_name = "Jersey Cable Knit"
         product_image = "assets/image1.jpeg"
         product_description = "A jersey for simple girls in their twenties that like to look comfortable"
     else:
         st.image("assets/image2.jpeg", width=300)
-        product_name = "Springfield Cardigan 'Maureen'"
+        product_name = "Cardigan 'Maureen'"
         product_image = "assets/image2.jpeg"
         product_description = "A cloth for winters days in the woods"
 

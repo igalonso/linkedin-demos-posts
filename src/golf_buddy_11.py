@@ -60,6 +60,7 @@ def get_golf_query(query: str):
         llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
     )
     result = retrieval_qa({"query": query})
+    print(result["result"])
     return result["result"]
 
 def get_book_context():
@@ -74,7 +75,7 @@ def get_book_context():
 
 
 
-def get_swing_video_inputs(video_local_path, statistics, distance, club):
+def get_swing_video_inputs(video_local_path, distance, club):
 
 
     video_path = upload_video_to_gcs_return_url(video_local_path, "igngar-golf-buddy-videos", "video.mp4")
@@ -86,60 +87,45 @@ def get_swing_video_inputs(video_local_path, statistics, distance, club):
             "emoji": "the best emoji to be displayed with the tip",
             "confidence": "the confidence of the tip. It should be a number between 0 and 5. 1 means you are totally sure of the tip and 0 means you are not sure at all."
         }],
-        # "positives": [{
-        #     "feedback": "the name of the positive feedback",
-        #     "confidence": "the confidence of the feedback. It should be a number between 0 and 5. 1 means you are totally sure of the feedback and 0 means you are not sure at all."
-        # }]
+        "positives": [{
+            "feedback": "the name of the positive feedback",
+            "confidence": "the confidence of the feedback. It should be a number between 0 and 5. 1 means you are totally sure of the feedback and 0 means you are not sure at all."
+        }]
         }
     context = json.loads(get_book_context())
     context_initial = context["initial_swing"]
     context_movement = context["swing_movement"]
     context_finishing = context["finishing_swing"]
-    prompt = f"Given the following video, the average statistics  of my past shots with this club presented bellow and the distance of {distance} in the shot I just made give me \n - 3 tips to improve my swing like a pro based on this video \n The response should be in the following json format using double quotes in your response:\n {json_format}\n STATISTICS:\n {statistics}\nUse the following golf tips for swings: Initial position {context_initial}\n Swing movement {context_movement}\nSwing finishing: {context_finishing}\n RESPONSE:"
+    prompt = f"Given the following video with this club: {club} presented bellow and the distance of {distance} in the shot I just made give me \n - 3 tips to improve my swing like a pro and 3 positive feedbacks.\n The response should be in the following json format using double quotes in your response:\n {json_format}\nUse the following golf tips for swings: Initial position {context_initial}\n Swing movement {context_movement}\nSwing finishing: {context_finishing}\n RESPONSE:"
     
     multimodal_model = GenerativeModel("gemini-pro-vision")
-    generation_config = GenerationConfig(
-        temperature=temp,
-        top_p=1.0,
-        top_k=32,
-        candidate_count=1,
-        max_output_tokens=8192,
-    )
     responses = multimodal_model.generate_content([prompt, generative_models.Part.from_uri(video_path,mime_type="video/mp4")],stream=False)
-    #responses = multimodal_model.generate_content(["What is in the video? ",generative_models.Part.from_uri("gs://cloud-samples-data/video/animals.mp4", mime_type="video/mp4"),
-    # print(responses)
     response = responses.candidates[0].content.parts[0].text.replace('```json', '').replace('```', '')
     print(response)
     return json.loads(response.replace("'", "\""))
 
-def get_swing_video_positive_inputs(video, statistics, distance, club):
-    video_path = upload_video_to_gcs_return_url(video, "igngar-golf-buddy-videos", "video.mp4")
-    json_format = [{"feedback": "the name of the positive feedback",
-        "explanation": "detailed explanation of the positive feedback",
-        "why":"why are you giving me this feedback? what did you see in the video that trigger this feedback",
-        "emoji": "the best emoji to be displayed with the feedback",
-        "confidence": "the confidence of the feedback. It should be a number between 0 and 5. 1 means you are totally sure of the feedback and 0 means you are not sure at all."}]
+# def get_swing_video_positive_inputs(video, statistics, distance, club):
+#     video_path = upload_video_to_gcs_return_url(video, "igngar-golf-buddy-videos", "video.mp4")
+#     json_format = [{"feedback": "the name of the positive feedback",
+#         "explanation": "detailed explanation of the positive feedback",
+#         "why":"why are you giving me this feedback? what did you see in the video that trigger this feedback",
+#         "emoji": "the best emoji to be displayed with the feedback",
+#         "confidence": "the confidence of the feedback. It should be a number between 0 and 5. 1 means you are totally sure of the feedback and 0 means you are not sure at all."}]
 
-    prompt = f"Given the following video, the average statistics of my shots with this club and the distance of the shot I just made ({distance}), give me 3 positive things I did right. The response should be in the following json format using double quotes:\n {json_format}\n STATISTICS:\n {statistics}\n RESPONSE:"
-    multimodal_model = GenerativeModel("gemini-pro-vision")
-    generation_config = GenerationConfig(
-        temperature=temp,
-        top_p=1.0,
-        top_k=32,
-        candidate_count=1,
-        max_output_tokens=8192,
-    )
-    responses = multimodal_model.generate_content([prompt, generative_models.Part.from_uri(video_path,mime_type="video/mp4")],stream=False)
-    #responses = multimodal_model.generate_content(["What is in the video? ",generative_models.Part.from_uri("gs://cloud-samples-data/video/animals.mp4", mime_type="video/mp4"),
+#     prompt = f"Given the following video, the average statistics of my shots with this club and the distance of the shot I just made ({distance}), give me 3 positive things I did right. The response should be in the following json format using double quotes:\n {json_format}\n STATISTICS:\n {statistics}\n RESPONSE:"
+#     multimodal_model = GenerativeModel("gemini-pro-vision")
+#     generation_config = GenerationConfig(
+#         temperature=temp,
+#         top_p=1.0,
+#         top_k=32,
+#         candidate_count=1,
+#         max_output_tokens=8192,
+#     )
+#     responses = multimodal_model.generate_content([prompt, generative_models.Part.from_uri(video_path,mime_type="video/mp4")],stream=False)
+#     #responses = multimodal_model.generate_content(["What is in the video? ",generative_models.Part.from_uri("gs://cloud-samples-data/video/animals.mp4", mime_type="video/mp4"),
 
-    response = responses.candidates[0].content.parts[0].text.replace('```json', '').replace('```', '')
-    return json.loads(response)
-
-def get_swing_posture_inputs(image, statistics,distance, club):
-    return {}
-
-def get_hand_grip_video_inputs(video, statistics,distance, club):
-    return {}
+#     response = responses.candidates[0].content.parts[0].text.replace('```json', '').replace('```', '')
+#     return json.loads(response)
 
 def collect_statistic_data(club):
     with open('assets/toptracer-scrapping/statistics_toptracer.json', 'r') as f:
@@ -166,12 +152,12 @@ def collect_statistic_data(club):
 
 def button_started(video, club, distance):
     statistics = collect_statistic_data(club)
-    swing = get_swing_video_inputs("temp/front_swing.mp4", statistics,distance,club)
-    positive =get_swing_video_positive_inputs("temp/front_swing.mp4", statistics,distance,club)
+    swing = get_swing_video_inputs("temp/front_swing.mp4",distance,club)
+    # positive =get_swing_video_positive_inputs("temp/front_swing.mp4", statistics,distance,club)
     # posture = get_swing_posture_inputs(posture, statistics,distance,club)
     # grip = get_hand_grip_video_inputs(hand_grip, statistics,distance,club)
 
-    return swing, positive
+    return swing
 
 # statistics = collect_statistic_data("Driver", 125)
 # print(statistics)

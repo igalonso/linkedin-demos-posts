@@ -4,10 +4,10 @@ import src.kids_storyteller as app
 st.set_page_config(
     # page_icon="web/img/robot-1.1s-200px.png",
     layout="wide",
-    page_title="Tell me a story!",
+    page_title="📖 Kids Storyteller",
     initial_sidebar_state="expanded",
 )
-
+st.title("📖 Kids Storyteller")
 if 'show_text' not in st.session_state:
     st.session_state['show_text'] = False
 

@@ -3,9 +3,14 @@ from PIL import Image
 from src.insurace_gemini_crafter_07 import generate_insurance, add_mark_to_car, generate_insurance_fromjson
 import cv2
 import os
-
+st.set_page_config(
+    # page_icon="web/img/robot-1.1s-200px.png",
+    layout="wide",
+    page_title="🚗 Car Damage Insurance Estimator",
+    initial_sidebar_state="expanded",
+)
+st.title("🚗 Car Damage Insurance Estimator")
 # Create two columns
-st.header("Car Damage Insurance Estimator")
 
 if 'show_text' not in st.session_state:
     st.session_state['show_text'] = False
@@ -33,12 +38,16 @@ col1, col2 = st.columns(2)
 
 # Add an image uploader to the first column
 with col1:
-    temp = st.slider("Temperature", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
+    temp = 0
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png"])
-    if uploaded_file is not None or st.button("Use example"):
-        if uploaded_file is None:
-            uploaded_file = "assets/crashcar.jpeg"
-            st.text("Using example image")
+    with open("assets/crashcar.jpeg", "rb") as file:
+        btn = st.download_button(
+            label="Download sample image",
+            data=file,
+            file_name="crashcar.jpeg",
+            mime="image/jpeg"
+        )
+    if uploaded_file:
         image = Image.open(uploaded_file)
         image = image.convert('RGB')
         image.save('crashcar.jpeg')
@@ -51,7 +60,7 @@ with col1:
             print('File does not exist')
         with col2:
             with st.spinner('Reading and summarizing document...'):
-                image_path = 'assets/crashcar.jpeg'
+                image_path = 'crashcar.jpeg'
                 response = generate_insurance(image_path, temp)
                 # response = generate_insurance_fromjson(response)
                 image_shape = cv2.imread('assets/car.jpeg')

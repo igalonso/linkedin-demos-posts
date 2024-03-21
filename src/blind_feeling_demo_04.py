@@ -130,17 +130,22 @@ def text_to_speech(text, filename):
         request={"input": input_text, "voice": voice, "audio_config": audio_config}
     )
 
-    # Write the response to the output file.
-    with open(filename, "wb") as out:
-        out.write(response.audio_content)
-        print(f'Audio content written to file "{filename}"')  
-    play_mp3(filename)
+    # # Write the response to the output file.
+    # with open(filename, "wb") as out:
+    #     out.write(response.audio_content)
+    #     print(f'Audio content written to file "{filename}"')  
+    # play_mp3(filename)
+    return response.audio_content
 
-def start_song(song_name, author):
+def start_song(song_name, author, client_id, client_secret, redirect_uri):
     # Set your Spotify app credentials
-    SPOTIPY_CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID")
-    SPOTIPY_CLIENT_SECRET = os.getenv("SPOTIPY_CLIENT_SECRET")
-    SPOTIPY_REDIRECT_URI = os.getenv("SPOTIPY_REDIRECT_URI")
+    # SPOTIPY_CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID")
+    # SPOTIPY_CLIENT_SECRET = os.getenv("SPOTIPY_CLIENT_SECRET")
+    # SPOTIPY_REDIRECT_URI = os.getenv("SPOTIPY_REDIRECT_URI")
+    SPOTIPY_CLIENT_ID = client_id
+    SPOTIPY_CLIENT_SECRET = client_secret
+    SPOTIPY_REDIRECT_URI = redirect_uri
+
 
 
     # Set the scope to allow control of Spotify playback
