@@ -5,6 +5,10 @@ from PIL import Image
 import io
 from langchain_community.retrievers import GoogleVertexAISearchRetriever
 import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 def get_image_base64(image_path):
     # Open the image file
     with Image.open(image_path) as img:
@@ -34,7 +38,6 @@ def get_product_query(query: str):
         engine_data_type=1,
     )
     result = retriever.get_relevant_documents(query)
-    print(result)
     return result
 
 
@@ -91,7 +94,9 @@ def retrieve_proposed_price(product, brand, model, condition):
     products = get_product_query(query)
     prices = []
     for product in products:
-        prices.append(json.loads(product.page_content)["price"])
+        print(product.page_content)
+        prices.append(json.loads(product.page_content)["Price"])
+
     if prices:
         return sum(prices) / len(prices)
     else:

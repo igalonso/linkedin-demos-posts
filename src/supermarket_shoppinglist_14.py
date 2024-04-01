@@ -41,7 +41,6 @@ def get_product_query(query: str):
         engine_data_type=1,
     )
     result = retriever.get_relevant_documents(query)
-    print(result)
     return result
 
 @st.cache_data(show_spinner=False)

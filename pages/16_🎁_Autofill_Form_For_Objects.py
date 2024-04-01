@@ -60,7 +60,7 @@ with main_col1:
             st.selectbox("Condition",conditions,index=conditions.index(suggestions['condition']))
             st.text_input("Color",value=suggestions['color'])
             st.text_area("Reason for selling",value=suggestions['reason_for_selling'])
-            st.slider("Price", min_value=1.0, max_value=10000.0, value=float(proposed_price))
+            st.slider("Price", min_value=1.0, max_value=float(proposed_price)*3, value=float(proposed_price))
             st.selectbox("Negotiable",['Yes','No'],index=0 if suggestions['negotiable']=='yes' else 1)
             st.selectbox("Delivery",['Yes','No'],index=0 if suggestions['delivery']=='yes' else 1)
 
