@@ -49,7 +49,7 @@ with col2:
     
     model_for_information_gathering = st.selectbox("Select a model for information gathering", ("text-bison@002","text-bison@001", "text-unicorn","gemini-pro"),disabled=True)
     model_for_hr_salary_decision = st.selectbox("Select a model for HR salary decision", ("text-bison@001","text-bison@002", "text-unicorn","gemini-pro"),disabled=True)
-    model_for_email_draft = st.selectbox("Select a model for email draft", ("text-unicorn", "text-bison@001","text-bison@002","text-bison-32k"),disabled=True)
+    model_for_email_draft = st.selectbox("Select a model for email draft", ("text-unicorn", "text-bison@001","gemini-pro","text-bison-32k"),disabled=False)
     # temperature_slider = st.slider("Temperature", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
     # temperature_slider_email = st.slider("Temperature for email", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
     temperature_slider = 0.0

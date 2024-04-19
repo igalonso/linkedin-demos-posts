@@ -24,3 +24,7 @@ matplotlib
 seaborn
 beautifulsoup4
 streamlit-carousel
+# transformers
+# torch 
+# torchvision 
+# accelerate

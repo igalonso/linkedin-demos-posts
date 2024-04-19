@@ -94,7 +94,6 @@ def retrieve_proposed_price(product, brand, model, condition):
     products = get_product_query(query)
     prices = []
     for product in products:
-        print(product.page_content)
         prices.append(json.loads(product.page_content)["Price"])
 
     if prices:
