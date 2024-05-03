@@ -24,6 +24,7 @@ matplotlib
 seaborn
 beautifulsoup4
 streamlit-carousel
+flask
 # transformers
 # torch 
 # torchvision 

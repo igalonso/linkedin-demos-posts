@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: Text Summarization API
+  version: 1.0.0
+servers:
+  - url: https://34.111.43.124.nip.io/v1
+paths:
+  /demo:
+    post:
+      summary: Summarize text
+      operationId: summarizeText
+      description: |
+        This endpoint summarizes the input text.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                request:
+                  type: string
+                  description: The text to be summarized.
+              required:
+                - request
+      responses:
+        '200':
+          description: A summary of the input text.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    description: The summarized text.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apikey
