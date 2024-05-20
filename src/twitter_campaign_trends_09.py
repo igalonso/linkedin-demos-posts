@@ -290,7 +290,7 @@ def get_copy_from_trend(trend, product_name, product_desccription):
         "additional_notes": "additional notes",
         "background_image": "background image description for the product in the tweet",
     }
-    model = GenerativeModel("gemini-pro")
+    model = GenerativeModel("gemini-1.0-pro-001")
 
     prompt = f"Based on this product description and name, a trending topic from Twitter, give me an Ad copy to encourage our audience to buy it with an offer. Avoid using Logos or people nor hands. \n Product name: {product_name} \n Product description: {product_desccription}, \n Trending topic: {trend}. \n Use the following json format: {json_format} using double quotes."
     

@@ -55,7 +55,7 @@ def retrieveShoppingList(image_path):
     prompt = f"Give me the list of items I want to buy at the supermarket in English. Use the following json format: {json_format} using double quotes"
     
     temperature = 0.5
-    model = GenerativeModel("gemini-pro-vision")
+    model = GenerativeModel("gemini-1.0-pro-vision-001")
     responses = model.generate_content(
         [image, prompt],
         generation_config={

@@ -98,7 +98,7 @@ def get_swing_video_inputs(video_local_path, distance, club):
     context_finishing = context["finishing_swing"]
     prompt = f"Given the following video with this club: {club} presented bellow and the distance of {distance} in the shot I just made give me \n - 3 tips to improve my swing like a pro and 3 positive feedbacks.\n The response should be in the following json format using double quotes in your response:\n {json_format}\nUse the following golf tips for swings: Initial position {context_initial}\n Swing movement {context_movement}\nSwing finishing: {context_finishing}\n RESPONSE:"
     
-    multimodal_model = GenerativeModel("gemini-pro-vision")
+    multimodal_model = GenerativeModel("gemini-1.0-pro-vision-001")
     responses = multimodal_model.generate_content([prompt, generative_models.Part.from_uri(video_path,mime_type="video/mp4")],stream=False)
     response = responses.candidates[0].content.parts[0].text.replace('```json', '').replace('```', '')
     print(response)

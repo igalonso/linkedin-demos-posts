@@ -53,7 +53,8 @@ def calling_gemini_magic(transcript):
         candidate_count=1,
         max_output_tokens=8192,
     )
-    model = GenerativeModel("gemini-pro")
+    print("this")
+    model = GenerativeModel("gemini-1.0-pro-001")
     responses = model.generate_content(prompt, stream=False,generation_config=generation_config)
     
     # model = TextGenerationModel.from_pretrained("gemini-pro")

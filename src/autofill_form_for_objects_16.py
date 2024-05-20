@@ -64,7 +64,7 @@ def autofill_form_for_objects(image_path):
     }
     prompt = f"You are an agent that suggests the user to fill a form with the details of the object in the image. Use the following json format to return the answer sing double quotes\nJSON_FORMAT:\n{json_format}\nANSWER:" 
     temperature = 0
-    model = GenerativeModel("gemini-pro-vision")
+    model = GenerativeModel("gemini-1.0-pro-vision-001")
     responses = model.generate_content(
         [image, prompt],
         generation_config={
