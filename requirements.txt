@@ -25,6 +25,9 @@ seaborn
 beautifulsoup4
 streamlit-carousel
 flask
+langchainhub
+vertexai
+langchain-google-vertexai
 # transformers
 # torch 
 # torchvision 
