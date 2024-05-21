@@ -62,6 +62,10 @@ if st.session_state['show_text']:
 
 col1, col2, col3 = st.columns(3)
 
+with col2:
+    st.image("assets/er.png")
+    patients = st.number_input("# Patients in ER", min_value=0, max_value=5, value=0, step=1, key="patients")
+    st.subheader("Max ER Capacity: "+ str(max_patients))
 
 with col1:
     st.image("assets/patient.png", width=75)
@@ -71,7 +75,7 @@ with col1:
             st.subheader("Patient 1")
             st.write("**Patient ID:** "+ patient_1)
             st.write("**Patient Symptoms:** "+ patient_1_symptoms)
-            result = json.loads(triage_patient(patient_1_symptoms,patient_1,max_patients,patients))
+            result = json.loads(get_triage_level(patient_1_symptoms,patient_1,max_patients,patients))
             st.write("**Triage Level:** "+ get_colors(result["triage_level"])+result["triage_level"]+"]")
             st.write("**Reasoning:** "+ result["reasoning"])
             st.write("**Patient History:** "+ result["patient_history"])         
@@ -83,7 +87,8 @@ with col1:
             st.subheader("Patient 2")
             st.write("**Patient ID:** "+ patient_2)
             st.write("**Patient Symptoms:** "+ patient_2_symptoms)
-            result = json.loads(triage_patient(patient_2_symptoms,patient_2,max_patients,patients))
+            response = get_triage_level(patient_2_symptoms,patient_2,max_patients,patients)
+            result = json.loads(response)
             st.write("**Triage Level:** "+ get_colors(result["triage_level"])+result["triage_level"]+"]")
             st.write("**Reasoning:** "+ result["reasoning"])
             st.write("**Patient History:** "+ result["patient_history"]) 
@@ -95,12 +100,9 @@ with col1:
             st.subheader("Patient 3")
             st.write("**Patient ID:** "+ patient_3)
             st.write("**Patient Symptoms:** "+ patient_3_symptoms)
-            result = json.loads(triage_patient(patient_3_symptoms,patient_3,max_patients,patients))
+            result = json.loads(get_triage_level(patient_3_symptoms,patient_3,max_patients,patients))
             st.write("**Triage Level:** "+ get_colors(result["triage_level"])+result["triage_level"]+"]")
             st.write("**Reasoning:** "+ result["reasoning"])
             st.write("**Patient History:** "+ result["patient_history"])  
     
-with col2:
-    st.image("assets/er.png")
-    patients = st.number_input("# Patients in ER", min_value=0, max_value=5, value=0, step=1, key="patients")
-    st.subheader("Max ER Capacity: "+ str(max_patients))
+

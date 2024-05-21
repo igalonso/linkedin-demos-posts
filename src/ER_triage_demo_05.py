@@ -8,13 +8,13 @@ import os
 import json
 from dotenv import load_dotenv
 import vertexai 
-from vertexai.language_models import TextGenerationModel
+from vertexai.preview.generative_models import GenerativeModel, GenerationConfig
 from datetime import datetime
 import google.auth
 
 # Imports the google.auth.transport.requests transport
 from google.auth.transport import requests
-
+MODEL="gemini-1.0-pro-001"
 
 load_dotenv()
 if __name__ == "__main__":
@@ -58,12 +58,21 @@ def get_patient_conditions(patient_id):
             "top_k": 40,  # A top_k of 1 means the selected token is the most probable among all tokens.
         }
 
-        model = TextGenerationModel.from_pretrained("text-bison@002")
-        summary = model.predict(
-            "Make a summary in bullet points of the following conditions: "+ str(response),
-            **parameters,
+        model = GenerativeModel("gemini-1.0-pro-001")
+        generation_config = GenerationConfig(
+            temperature=0,
+            top_p=1.0,
+            top_k=32,
+            candidate_count=1,
+            max_output_tokens=8192,
         )
-        return summary.candidates[0]
+        prompt = "Make a summary in bullet points of the following conditions: "+ str(response)
+        # summary = model.predict(
+        #     "Make a summary in bullet points of the following conditions: "+ str(response),
+        #     **parameters,
+        # )
+        summary = model.generate_content(prompt, stream=False,generation_config=generation_config)
+        return summary.candidates[0].content.parts[0].text
     else:
         return None
 def get_patient_procedures(patient_id):
@@ -103,12 +112,26 @@ def get_patient_procedures(patient_id):
             "top_k": 40,  # A top_k of 1 means the selected token is the most probable among all tokens.
         }
 
-        model = TextGenerationModel.from_pretrained("text-bison@002")
-        summary = model.predict(
-            "Make a summary in bullet points of the following procedures: "+ str(response),
-            **parameters,
+        model = GenerativeModel(MODEL)
+        # summary = model.predict(
+        #     "Make a summary in bullet points of the following procedures: "+ str(response),
+        #     **parameters,
+        # )
+        # model = GenerativeModel("gemini-1.0-pro-001")
+        generation_config = GenerationConfig(
+            temperature=0,
+            top_p=1.0,
+            top_k=32,
+            candidate_count=1,
+            max_output_tokens=8192,
         )
-        return summary.candidates[0]
+        prompt = "Make a summary in bullet points of the following procedures: "+ str(response)
+        # summary = model.predict(
+        #     "Make a summary in bullet points of the following conditions: "+ str(response),
+        #     **parameters,
+        # )
+        summary = model.generate_content(prompt, stream=False,generation_config=generation_config)
+        return summary.candidates[0].content.parts[0].text
     else:
         return None
 def get_patient_profile(patient_id):
@@ -148,81 +171,54 @@ def get_patient_profile(patient_id):
             "top_k": 40,  # A top_k of 1 means the selected token is the most probable among all tokens.
         }
 
-        model = TextGenerationModel.from_pretrained("text-bison@002")
-        summary = model.predict(
-             "Make a summary in bullet points of the following patient profile: "+ str(response),
-            **parameters,
+        model = GenerativeModel(MODEL)
+        generation_config = GenerationConfig(
+            temperature=0,
+            top_p=1.0,
+            top_k=32,
+            candidate_count=1,
+            max_output_tokens=8192,
         )
-        return summary.candidates[0]
+        prompt = "Make a summary in bullet points of the following patient profile: "+ str(response)
+        summary = model.generate_content(prompt, stream=False,generation_config=generation_config)
+        return summary.candidates[0].content.parts[0].text
+
+
+        # summary = model.predict(
+        #      "Make a summary in bullet points of the following patient profile: "+ str(response),
+        #     **parameters,
+        # )
+        # return summary.candidates[0]
     else:
         return None
 
-def determine_triage_level(query):
-    project_id = os.environ["PROJECT_ID"]
-    location = "europe-west1"
-    vertexai.init(project=project_id, location=location)
-    parameters = {
-        "temperature": 0,  # Temperature controls the degree of randomness in token selection.
-        "max_output_tokens": 2040,  # Token limit determines the maximum amount of text output.
-        "top_p": 0,  # Tokens are selected from most probable to least until the sum of their probabilities equals the top_p value.
-        "top_k": 40,  # A top_k of 1 means the selected token is the most probable among all tokens.
-    }
-
-    model = TextGenerationModel.from_pretrained("text-bison@002")
-    response = model.predict(
-        query,
-        **parameters,
-    )
-    return response.text
-    
-patient_history = Tool(
-    name="patient_history",
-    func=get_patient_conditions,
-    description="Get patient history from FHIR using the patient's ID",
-)
-patients_triage = Tool(
-    name="patients_triage",
-    func=determine_triage_level,
-    description="useful for triage patients in the ER room based on the current patients in the ER room, the maximum capacity of the ER room, the symptoms of the patient, the patient's history and the patient's profile",
-)
-patient_profile = Tool(
-    name="patient_profile",
-    func=get_patient_profile,
-    description="Get patient profile from FHIR using the patient's ID",
-)
-
-def get_er_agent(temp):
-    print("*" * 79)
-    print("AGENT: ER agent!")
-    print("*" * 79)
-    llm = VertexAI(temperature=temp, verbose=True, max_output_tokens=8192,model_name=os.environ["MODEL_NAME"])
-    tools_for_agent = [patient_history, patients_triage,patient_profile]
-    agent = initialize_agent(
-        tools_for_agent,
-        llm,
-        agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-        verbose=True,
-        handle_parsing_errors=True
-    )
-    return agent
-
-
-def triage_patient(symtoms: str , patients_id: str, max_er_capacity: int, current_er_patients: int):
+def get_triage_level(symptoms: str,patient_id: str, max_er_capacity: int, current_er_patients: int):
+    print("current er patients", current_er_patients)
+    print("max er capacity", max_er_capacity)
+    profile = get_patient_profile(patient_id)
+    history = get_patient_conditions(patient_id)
+    procedures = get_patient_procedures(patient_id)
     json_format = {
         "symptoms": "symtoms of the patient",
         "patient_id": "id of the patient",
         "max_er_capacity": "maximum capacity of the ER room",
         "current_er_patients": "number of current patients in the ER room",
-        "triage_level": "selected triage",
+        "triage_level": "selected triage. Eiter Low, Medium or High",
         "reasoning": "reasoning for triage",
         "patient_history": "patient's history"
     }
-    task = "You are a ER triage agent that helps nurses triage patients that come to the hospital. You need to find the patients history with the followint ID: "+ patients_id+ ". You need to find the profile of the patient to know it's age with the following Patient ID: "+ patients_id+ ". The levels of Triage are Low, Medium, High in priority. Take into account the current patients in the ER room to perform your triage." + symtoms+ ". The current patients in the ER room are: "+ str(current_er_patients)+ " and the maximum capacity of the ER room is: "+ str(max_er_capacity)+"\n The formant should be as follows: " + str(json_format) + "\n Do not use single quotes for this JSON. Use double quotes."
-    agent = get_er_agent(0)
-    results = agent.run(task)
-    print(results)
-    # response = results
-    # print(response)
-    return results.replace("'", "\"")
-    # return results
+    prompt = f"You are a ER triage agent that helps nurses triage patients that come to the hospital. You need to take into account the symptoms of the patient, the current capacity of the ER and the history of the patient.\nThe patient {patient_id} has the following profile: {profile}. \nThe patient has the following symptoms: {symptoms}. \nThe patient has the following history: {history}. \nThe patient has the following procedures: {procedures}. \nThe maximum capacity of the ER room is {max_er_capacity}. \nThe number of current patients in the ER room is {current_er_patients}. \nDetermine the triage level for the patient usong the current json_format: {json_format} \nDo not use single quotes for this JSON. Use double quotes."
+    model = GenerativeModel(MODEL)
+    generation_config = GenerationConfig(
+        temperature=0,
+        top_p=1.0,
+        top_k=32,
+        candidate_count=1,
+        max_output_tokens=8192,
+    )
+    # prompt = "Make a summary in bullet points of the following patient profile: "+ str(response)
+    summary = model.generate_content(prompt, stream=False,generation_config=generation_config)
+    print(summary.candidates[0].content.parts[0].text)
+    return summary.candidates[0].content.parts[0].text
+
     
