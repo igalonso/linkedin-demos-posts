@@ -26,12 +26,14 @@ from langchain_google_vertexai import ChatVertexAI
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain.tools import BaseTool, StructuredTool, tool
+from dotenv import load_dotenv
+load_dotenv()
+if __name__ == "__main__":
+    pass
 
-
-os.environ["LANGCHAIN_API_KEY"] = "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"
 LANGCHAIN_TRACING_V2=True
-LANGCHAIN_ENDPOINT="https://api.smith.langchain.com"
-LANGCHAIN_API_KEY= "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"
+LANGCHAIN_ENDPOINT=os.environ["LANGCHAIN_ENDPOINT"]
+LANGCHAIN_API_KEY= os.environ["LANGCHAIN_API_KEY"]
 from langsmith import traceable
 
 
