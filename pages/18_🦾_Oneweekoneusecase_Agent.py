@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit.components.v1 import html
 
-
+st.session_state['show_text'] = False
 st.set_page_config(
     layout="wide",
     page_title="🦾 #oneweekoneusecase Agent",

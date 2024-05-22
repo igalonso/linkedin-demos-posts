@@ -308,6 +308,7 @@ def generate_image_from_tweet(tweet, image):
     project_id = os.getenv('PROJECT_ID')
     location = os.getenv('LOCATION_TWITTER_PROJECT')
     image_model_name = os.getenv('IMAGE_MODEL_NAME')
+    # image_model_name = "imagegeneration@006"
     PREDICTION_ENDPOINT = (
         f"https://us-central1-aiplatform.googleapis.com/v1/"
         f"projects/{project_id}/locations/us-central1/"

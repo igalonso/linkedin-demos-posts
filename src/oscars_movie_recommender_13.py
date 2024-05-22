@@ -2,6 +2,8 @@ from google.cloud import bigquery
 from vertexai.preview.generative_models import GenerativeModel, GenerationResponse, GenerationConfig
 import json
 
+MODEL="gemini-1.0-pro-001"
+
 def retrieve_json_nominations():
     with open("assets/oscars2024.json", 'r') as f:
         data = json.load(f)
@@ -25,7 +27,7 @@ def recommend_movies(selected_categories, selected_movies):
         candidate_count=1,
         max_output_tokens=8192,
     )
-    model = GenerativeModel("gemini-pro")
+    model = GenerativeModel(MODEL)
     
     responses = model.generate_content(prompt, stream=False,generation_config=generation_config)
     print(responses)

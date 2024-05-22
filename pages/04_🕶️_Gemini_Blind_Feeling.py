@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from src.blind_feeling_demo_04 import *
-
+st.session_state['show_text'] = False
 
 st.set_page_config(
     # page_icon="web/img/robot-1.1s-200px.png",

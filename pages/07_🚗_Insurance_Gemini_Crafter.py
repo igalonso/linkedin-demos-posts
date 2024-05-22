@@ -11,7 +11,7 @@ st.set_page_config(
 )
 st.title("🚗 Car Damage Insurance Estimator")
 # Create two columns
-
+st.session_state['show_text'] = False
 if 'show_text' not in st.session_state:
     st.session_state['show_text'] = False
 

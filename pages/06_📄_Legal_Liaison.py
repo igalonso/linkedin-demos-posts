@@ -3,7 +3,7 @@ from src.legal_liaison_06 import text_summarization,summarize_pdf
 import os
 import shutil
 import base64
-
+st.session_state['show_text'] = False
 def get_colors(severity):
     if severity == "Low":
         return ":green["

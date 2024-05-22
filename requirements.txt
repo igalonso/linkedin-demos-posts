@@ -17,7 +17,8 @@ opencv-python
 image
 tweepy
 python-dotenv
-Pillow==9.4.0
+# Pillow==9.4.0
+Pillow
 google-cloud-documentai
 google-cloud-discoveryengine
 matplotlib

@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import src.autofill_form_for_objects_16 as  app
 
-
+st.session_state['show_text'] = False
 st.set_page_config(
     layout="wide",
     page_title="🎁 Autofill Form For Objects",

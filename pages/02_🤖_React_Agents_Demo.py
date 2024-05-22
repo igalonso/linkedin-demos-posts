@@ -6,7 +6,7 @@ sys.path.insert(1, '')
 
 import src.react_agents_demo_agent_02 as agent
 import os
-
+st.session_state['show_text'] = False
 st.set_page_config(
     #page_icon="assets/robot-1.1s-200px.png",
     layout="wide",

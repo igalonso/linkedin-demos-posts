@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 import src.oscars_movie_recommender_13 as app
-
+st.session_state['show_text'] = False
 st.set_page_config(
     # page_icon="web/img/robot-1.1s-200px.png",
     layout="wide",

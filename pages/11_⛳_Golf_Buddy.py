@@ -5,7 +5,7 @@ import json
 st.set_page_config(layout='wide')
 # Create three columns
 st.title("⛳ Golf Buddy")
-
+st.session_state['show_text'] = False
 def create_video_html(file):
     with open(file, "rb") as file:
         video_encoded = base64.b64encode(file.read()).decode()

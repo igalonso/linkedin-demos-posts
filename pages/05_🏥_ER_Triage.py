@@ -21,7 +21,7 @@ patient_3_symptoms = os.environ["PATIENT_SYMPTOMS_3"]
 patients = os.environ["NUM_PATIENTS_ER"]
 max_patients = os.environ["MAX_PATIENTS_ER"]
 
-
+st.session_state['show_text'] = False
 def get_colors(severity):
     if severity == "Low":
         return ":green["

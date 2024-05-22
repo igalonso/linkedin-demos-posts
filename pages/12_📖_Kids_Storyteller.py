@@ -1,6 +1,6 @@
 import streamlit as st
 import src.kids_storyteller as app
-
+st.session_state['show_text'] = False
 st.set_page_config(
     # page_icon="web/img/robot-1.1s-200px.png",
     layout="wide",

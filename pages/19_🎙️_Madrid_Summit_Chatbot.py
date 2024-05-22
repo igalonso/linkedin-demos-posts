@@ -1,6 +1,6 @@
 import streamlit as st
 import src.summit_chatbot as app
-
+st.session_state['show_text'] = False
 st.title("Google Cloud Summit Madrid Chatbot 🎙️")
 
 # Initialize chat history

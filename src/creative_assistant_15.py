@@ -146,7 +146,7 @@ def generate_imagen_images(text_prompt, image_style, camera_effects, lens_type, 
     vertexai.init(project=PROJECT_ID, location="us-central1")
     # generation_model = TextGenerationModel.from_pretrained("text-unicorn")
     LOCATION = "us-central1"  # @param {type:"string"}
-    IMAGE_MODEL_NAME = "imagegeneration@005"  # @param {type:"string"}
+    IMAGE_MODEL_NAME = "imagegeneration@006"  # @param {type:"string"}
     BUCKET = ""  # @param {type:"string"}
     FOLDER = ""  # @param {type:"string"}
     CSV_FILE_NAME = ""  # @param {type:"string"}

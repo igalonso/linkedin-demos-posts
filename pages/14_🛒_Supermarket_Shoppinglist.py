@@ -4,7 +4,7 @@ import src.supermarket_shoppinglist_14 as  app
 from PIL import Image
 
 max_items = 6
-
+st.session_state['show_text'] = False
 # @st.cache_data(show_spinner=False)
 def retrieve_alternative_list(shopping_list):
     

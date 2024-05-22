@@ -1,6 +1,6 @@
 import streamlit as st
 
-
+st.session_state['show_text'] = False
 st.set_page_config(
     page_title="oneweekoneusecase",
     page_icon="👋",

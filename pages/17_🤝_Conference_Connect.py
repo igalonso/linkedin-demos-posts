@@ -1,6 +1,6 @@
 import streamlit as st
 import src.conference_connect_17 as  app
-
+st.session_state['show_text'] = False
 st.set_page_config(
     layout="wide",
     page_title="🤝 Conference Connect",

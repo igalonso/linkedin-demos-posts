@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_carousel import carousel
 import src.creative_assistant_15 as app
-
+st.session_state['show_text'] = False
 st.set_page_config(
     layout="wide",
     page_title="👠 Creative Assistant",
