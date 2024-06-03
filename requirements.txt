@@ -29,6 +29,7 @@ flask
 langchainhub
 vertexai
 langchain-google-vertexai
+langchain-chroma
 # transformers
 # torch 
 # torchvision 
