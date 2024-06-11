@@ -29,18 +29,6 @@ if st.session_state['show_text']:
     st.divider()
 
 
-# chat_hi
-# story = []
-
-
-# prompt = "Give me a list of the job offers in New York as a Data Engineer with the salary in EUR. Rate them from best to worse. Include a brief description of the benefits."
-# response= app.agent_invoke(prompt,random_uuid)
-
-# print("INPUT: " + response["input"])
-# print("OUTPUT: "+ response["output"])
-# print("-------------------------------INTERMIDIATE STEPS-------------------------------")
-# print(response["intermediate_steps"])
-
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []

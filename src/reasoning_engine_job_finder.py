@@ -43,20 +43,10 @@ safety_settings = {
 }
 ip_address = "88.1.213.70"
 model_kwargs = {
-    # temperature (float): The sampling temperature controls the degree of
-    # randomness in token selection.
     "temperature": 0.3,
-    # max_output_tokens (int): The token limit determines the maximum amount of
-    # text output from one prompt.
     "max_output_tokens": 1000,
-    # top_p (float): Tokens are selected from most probable to least until
-    # the sum of their probabilities equals the top-p value.
     "top_p": 0.95,
-    # top_k (int): The next token is selected from among the top-k most
-    # probable tokens.
     "top_k": 40,
-    # safety_settings (Dict[HarmCategory, HarmBlockThreshold]): The safety
-    # settings to use for generating content.
     "safety_settings": safety_settings,
 }
 
@@ -139,11 +129,7 @@ def get_location():
         print(f"An error occurred: {err}")
 
 
-def get_exchange_rate(
-    currency_from: str = "USD",
-    currency_to: str = "EUR",
-    # currency_date: str = "latest",
-):
+def get_exchange_rate(currency_from: str = "USD", currency_to: str = "EUR"):
     """Retrieves the exchange rate between two currencies on a specified date.
 
     Uses the Frankfurter API (https://api.frankfurter.app/) to obtain

@@ -16,7 +16,6 @@ google-generativeai
 opencv-python
 image
 tweepy
-python-dotenv
 # Pillow==9.4.0
 Pillow
 google-cloud-documentai
@@ -30,6 +29,7 @@ langchainhub
 vertexai
 langchain-google-vertexai
 langchain-chroma
+# pysqlite3-binary
 # transformers
 # torch 
 # torchvision 
