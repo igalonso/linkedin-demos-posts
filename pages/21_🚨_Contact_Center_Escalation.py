@@ -91,6 +91,22 @@ def execute_agent_3_times(iteration:int, conclussions:dict, email:str):
             response = execute_agent_3_times(iteration-1,conclussions, email)
             print(response)
             return response
+        
+def execute_agent_call_meta_info_3_times(iteration:int, audio_data:bytes):
+    if iteration == 0:
+        return "No response"
+    else:
+        try:
+            conclussions = get_call_meta_info(audio_data)
+            print(conclussions)
+            return conclussions
+        except Exception as e:
+            conclussions = execute_agent_call_meta_info_3_times(iteration-1,audio_data)
+            print(conclussions)
+            return conclussions
+        
+
+
 
 
 col1, col2, col3 = st.columns(3)
@@ -120,17 +136,21 @@ if audio_file:
                     st.write(":ghost:: " +speaker['text'])
     
         with col3:
-            conclussions = get_call_meta_info(audio_data)
-            print(conclussions)
-            st.write("**Summary of conversation:** "+ conclussions['summary_of_conversation'])
-            st.markdown(f'**Sentiment:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_sentiment(conclussions["sentiment"])}; color: white;">{conclussions["sentiment"]}</div>', unsafe_allow_html=True)
-            st.write("**Sentiment reason:** "+ conclussions['sentiment_reason'])
-            st.markdown(f'**Category:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_category(conclussions["category"])}; color: white;">{conclussions["category"]}</div>', unsafe_allow_html=True)
-            st.markdown(f'**Next action:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_next_action(conclussions["next_action"])}; color: white;">{conclussions["next_action"]}</div>', unsafe_allow_html=True)
-            response = execute_agent_3_times(3,conclussions, "security@contanctcenterenhancer.com")
-            if response != "No response":
-                st.subheader("Agent Automated response")
-                st.write("**Action:** "+ response['output'])
-                st.write("**Email sent:** "+ response['intermediate_steps'][0][1])
+            conclussions = execute_agent_call_meta_info_3_times(3,audio_data)
+            if conclussions == "No response":
+                st.write("No response")
             else:
-                st.write("**Action:** No response.")
+                # get_call_meta_info(audio_data)
+                print(conclussions)
+                st.write("**Summary of conversation:** "+ conclussions['summary_of_conversation'])
+                st.markdown(f'**Sentiment:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_sentiment(conclussions["sentiment"])}; color: white;">{conclussions["sentiment"]}</div>', unsafe_allow_html=True)
+                st.write("**Sentiment reason:** "+ conclussions['sentiment_reason'])
+                st.markdown(f'**Category:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_category(conclussions["category"])}; color: white;">{conclussions["category"]}</div>', unsafe_allow_html=True)
+                st.markdown(f'**Next action:** <div style="display: inline-block; padding: 0.25em 0.5em; border-radius: 15px; background-color: {get_background_color_next_action(conclussions["next_action"])}; color: white;">{conclussions["next_action"]}</div>', unsafe_allow_html=True)
+                response = execute_agent_3_times(3,conclussions, "security@contanctcenterenhancer.com")
+                if response != "No response":
+                    st.subheader("Agent Automated response")
+                    st.write("**Action:** "+ response['output'])
+                    st.write("**Email sent:** "+ response['intermediate_steps'][0][1])
+                else:
+                    st.write("**Action:** No response.")

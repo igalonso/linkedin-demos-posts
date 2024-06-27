@@ -1,13 +1,13 @@
 from vertexai.preview import reasoning_engines
 from langchain_google_vertexai import HarmBlockThreshold, HarmCategory
 from langchain_google_vertexai import VertexAIEmbeddings
-from langchain_community.document_loaders.csv_loader import CSVLoader
+from langchain_google_vertexai import (
+    VectorSearchVectorStore)
 from langchain.memory import ChatMessageHistory
 from langchain.agents.format_scratchpad import format_to_openai_function_messages
 from langchain_core import prompts
 import os
 from dotenv import load_dotenv
-from langchain_chroma import Chroma
 import json
 import requests
 
@@ -19,21 +19,18 @@ if __name__ == "__main__":
 LANGCHAIN_TRACING_V2=True
 LANGCHAIN_ENDPOINT=os.environ["LANGCHAIN_ENDPOINT"]
 LANGCHAIN_API_KEY= os.environ["LANGCHAIN_API_KEY"]
+
+project= os.environ["PROJECT_ID"]
+my_index= os.environ["INDEX_ID"]
+my_index_endpoint= os.environ["INDEX_ENDPOINT"]
+location = "us-central1"
+gs_uri=os.environ["GS_URI_INDEX"]
+
 from langsmith import traceable
 
 
 
 model = "gemini-1.5-pro-001"
-embeddings = VertexAIEmbeddings(model_name="textembedding-gecko@latest")
-offer_loader = CSVLoader(file_path="src/utils/jobs_csv.csv",
-    csv_args={
-        "delimiter": ",",
-        "quotechar": '"',
-    })
-offers_data = offer_loader.load()
-offers_db = Chroma.from_documents(offers_data, embeddings)
-offers_retriever = offers_db.as_retriever(search_kwargs={"k": 3})
-
 safety_settings = {
     HarmCategory.HARM_CATEGORY_UNSPECIFIED: HarmBlockThreshold.BLOCK_NONE,
     HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
@@ -108,7 +105,20 @@ def search_job_offers(query:str):
             job_salary: 110,000 USD', metadata={'row': 3, 'source': 'src/utils/jobs_csv.csv'})]
             offer_link: https://dsfsdg.com', metadata={'row': 3, 'source': 'src/utils/jobs_csv.csv'})]
     """
-    return offers_retriever.invoke(query)
+    # print("Searching for a job with Query: ", query)
+    embedding_model = VertexAIEmbeddings(model_name="textembedding-gecko@003")
+    vector_store = VectorSearchVectorStore.from_components(
+        project_id=project,
+        region="us-central1",
+        gcs_bucket_name=gs_uri,
+        index_id=my_index,
+        endpoint_id=my_index_endpoint,
+        embedding=embedding_model,
+    )
+    response =vector_store.similarity_search(query, k=5)
+    return response
+
+
 def get_location():
     """
     Retrieves the location information of the user.

@@ -1,4 +1,4 @@
-"job_id","job_description","job_location","job_benefits","job_salary", "offer_link"
+"id","job_description","job_location","job_benefits","job_salary", "offer_link"
 "1","Software Engineer","San Francisco, CA","Health insurance, 401k USD, paid time off","150,000 USD", "https://softeng.sanfrancisco.com/423213452345"
 "2","Data Scientist","New York, NY","Health insurance, 401k USD, paid time off","120,000 USD", "https://softeng.ny.com/423213452345"
 "3","Product Manager","Seattle, WA","Health insurance, 401k USD, paid time off","180,000 USD", "https://softeng.seat.com/4235462346"
@@ -29,4 +29,3 @@
 "28","Translator","Seoul, South Korea","Health insurance, paid holidays, sick leave","40,000 KRW", "https://translate.seoul.com/2357924680"
 "29","Writer","Berlin, Germany","Health insurance, paid holidays, sick leave","45,000 EUR", "https://writer.berlin.com/4680135792"
 "30","Web Designer","London, UK","Pension, paid holidays, sick leave","35,000 GBP", "https://webdesign.london.com/5792468013"
-
